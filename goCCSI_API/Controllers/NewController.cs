@@ -1,0 +1,220 @@
+﻿using goCCSI_API.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace goCCSI_API.Controllers
+{
+    [EnableCors("MyPolicy")]
+    [ApiController]
+    [Route("[controller]")]
+    //[Authorize]
+    public class NewController : Controller
+    {
+        private readonly IConfiguration config;
+
+        public NewController()
+        {
+
+        }
+
+
+
+        [HttpPost]
+        [Route("SelectNews")]
+
+        public async Task<IActionResult> SelectNews(modNewsParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                List<modNews> lstNews = bLayer.SelectNews(pNews);
+                return await Task.Run(() => Ok(lstNews));
+
+            }
+
+
+        }
+
+
+
+        [HttpPost]
+        [Route("InsertNew")]
+        public async Task<IActionResult> InsertNew(modNewsParamsInsert pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modNews cNews = bLayer.InsertNew(pNews);
+
+                return await Task.Run(() => Ok(cNews));
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+        [HttpPost]
+        [Route("InsertUpdateNew")]
+        public async Task<IActionResult> InsertUpdateNew(modNewsParamsInsertUpdate pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modNews cNews = bLayer.InsertUpdateNew(pNews);
+
+                return await Task.Run(() => Ok(cNews));
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+        [HttpPost]
+        [Route("DeleteNews")]
+        public async Task<IActionResult> DeleteNews(modDeleteNewsParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modidNews cNews = bLayer.DeleteNews(pNews);
+
+                return await Task.Run(() => Ok(cNews));
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+        [HttpPost]
+        [Route("SelectNewsRelations")]
+
+        public async Task<IActionResult> SelectNewsRelations(modNewsRelationParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                List<modNewsRelation> lstRelations = bLayer.SelectNewsRelations(pNews);
+                return await Task.Run(() => Ok(lstRelations));
+
+            }
+
+
+        }
+
+
+
+        [HttpPost]
+        [Route("AddNewsRelations")]
+
+        public async Task<IActionResult> AddNewsRelations(modAddNewsRelationParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                modNewsRelation idRelation = bLayer.AddNewsRelations(pNews);
+                return await Task.Run(() => Ok(idRelation));
+
+            }
+
+
+        }
+
+
+        [HttpPost]
+        [Route("RemoveNewsRelations")]
+        public async Task<IActionResult> RemoveNewsRelations(modRemoveNewsRelationParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                bool bResult = bLayer.RemoveNewsRelations(pNews);
+                return await Task.Run(() => Ok(bResult));
+
+            }
+
+        }
+
+
+
+
+    }
+}
