@@ -47,6 +47,7 @@ namespace goCCSI_API.DL
         }
 
 
+
         public int InsertClockDateTime(modClockDateTime pClock)
         {
 
