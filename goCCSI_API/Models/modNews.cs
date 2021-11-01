@@ -74,6 +74,8 @@ namespace goCCSI_API.Models
 
         public bool isDraft { get; set; }
 
+        public int idStatus { get; set; }
+
 
     }
 
