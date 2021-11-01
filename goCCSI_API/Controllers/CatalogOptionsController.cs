@@ -1,4 +1,5 @@
 ﻿using goCCSI_API.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace goCCSI_API.Controllers
 {
+    [EnableCors("MyPolicy")]
+    [ApiController]
+    [Route("[controller]")]
     public class CatalogOptionsController : Controller
     {
         [HttpPost]
