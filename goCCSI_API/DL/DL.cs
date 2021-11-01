@@ -47,6 +47,7 @@ namespace goCCSI_API.DL
         }
 
 
+
         public int InsertClockDateTime(modClockDateTime pClock)
         {
 
@@ -174,7 +175,8 @@ namespace goCCSI_API.DL
                         new SqlParameter("@PinToTop", pNews.PinToTop),
                         new SqlParameter("@OrderNew", pNews.OrderNew),
                         new SqlParameter("@idPersonnalInsert", pNews.idPersonnalInsert),
-                        new SqlParameter("@Isdraft", pNews.isDraft)
+                        new SqlParameter("@Isdraft", pNews.isDraft),
+                        new SqlParameter("@idStatus", pNews.idStatus)
 
                       };
 
