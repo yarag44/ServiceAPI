@@ -94,8 +94,15 @@ namespace goCCSI_API.BL
         }
 
 
+        public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
+        {
+            return dLayer.SelectCatalogOptions(pCatalogOption);
 
         }
+
+
+
+    }
 
 
 

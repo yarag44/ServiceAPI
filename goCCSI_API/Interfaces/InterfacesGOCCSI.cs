@@ -54,6 +54,13 @@ namespace goCCSI_API.Interfaces
         #endregion
 
 
+        #region CATALOG_OPTIONS
+
+        List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption);
+
+        #endregion
+
+
 
 
     }

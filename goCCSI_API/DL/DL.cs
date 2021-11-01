@@ -95,9 +95,6 @@ namespace goCCSI_API.DL
 
 
 
-
-
-
         public List<modNews> SelectNews(modNewsParams pNews)
         {
             List<modNews> lstNews = new List<modNews>();
@@ -309,13 +306,6 @@ namespace goCCSI_API.DL
 
 
 
-
-
-
-
-
-
-
         public modPermission InsertUpdatePermissions(modPermissionParams pPermission)
         {
 
@@ -369,6 +359,27 @@ namespace goCCSI_API.DL
             lstPermissions = bFunc.ConvertDataTable<modPermissionSelect>(dt);
 
             return lstPermissions;
+
+        }
+
+
+        public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
+        {
+            List<modCatalogOptionsSelect> lstCatalogOptions = new List<modCatalogOptionsSelect>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@IDCATALOG", pCatalogOption.idCatalog)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectCatalogOptions", par).Tables[0];
+
+            lstCatalogOptions = bFunc.ConvertDataTable<modCatalogOptionsSelect>(dt);
+
+            return lstCatalogOptions;
 
         }
 

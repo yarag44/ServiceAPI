@@ -22,6 +22,18 @@ namespace goCCSI_API.Models
 
         public int idPersonnal { get; set; }
 
+        public string personnalNoEmployee { get; set; }
+
+
+        public string personnalName { get; set; }
+
+
+        public string personnalCampaign { get; set; }
+
+
+        public string personnalCenter { get; set; }
+
+
         public DateTime CheckDateTime { get; set; }
 
         public string ClockTime { get; set; }
