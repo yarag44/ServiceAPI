@@ -10,131 +10,129 @@ using System.Threading.Tasks;
 namespace goCCSI_API.BL
 {
     public class BL: InterfacesGOCCSI
-    {
-
-        DL.DL dLayer;
-
-        public BL()
-        {
-            dLayer = new DL.DL();
-        }
-
-        public int InsertClockDateTime(modClockDateTime pClock)
-        {
-            return dLayer.InsertClockDateTime(pClock);
-        }
-
-        public modNews InsertNew(modNewsParamsInsert pNews)
         {
 
-            return dLayer.InsertNew(pNews);
+            DL.DL dLayer;
+
+            public BL()
+            {
+                dLayer = new DL.DL();
+            }
+
+            public int InsertClockDateTime(modClockDateTime pClock)
+            {
+                return dLayer.InsertClockDateTime(pClock);
+            }
+
+            public modNews InsertNew(modNewsParamsInsert pNews)
+            {
+
+                return dLayer.InsertNew(pNews);
+            }
+
+            public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTime pClock)
+            {
+                return dLayer.SelectClockdateTime(pClock);
+            }
+
+            public List<modNews> SelectNews(modNewsParams pNews)
+            {
+                return dLayer.SelectNews(pNews);
+            }
+
+            public List<modPersonnal> SelectPersonnal(modLogin plogin)
+            {
+                return dLayer.SelectPersonnal(plogin);
+
+            }
+
+            public modNews InsertUpdateNew(modNewsParamsInsertUpdate pNews)
+            {
+
+                return dLayer.InsertUpdateNew(pNews);
+
+            }
+
+            public modidNews DeleteNews(modDeleteNewsParams pNews)
+            {
+
+                return dLayer.DeleteNews(pNews);
+
+            }
+
+
+            public modPermission InsertUpdatePermissions(modPermissionParams pPermission)
+            {
+
+                return dLayer.InsertUpdatePermissions(pPermission);
+
+            }
+
+            public List<modPermissionSelect> SelectPermissions(modPermissionSelectParams pPermission)
+            {
+                return dLayer.SelectPermissions(pPermission);
+
+            }
+
+
+            public List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews)
+            {
+                return dLayer.SelectNewsRelations(pNews);
+            }
+
+
+            public modNewsRelation AddNewsRelations(modAddNewsRelationParams pNews)
+            {
+                return dLayer.AddNewsRelations(pNews);
+
+            }
+
+
+            public bool RemoveNewsRelations(modRemoveNewsRelationParams pNews)
+            {
+                return dLayer.RemoveNewsRelations(pNews);
+            }
+
+
+            public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
+            {
+                return dLayer.SelectCatalogOptions(pCatalogOption);
+
+            }
+
+
+
+            public bool Update_ViewsNews(modOperViewsNewsParams pNews)
+            {
+                return dLayer.Update_ViewsNews(pNews);
+
+            }
+
+
+            public ViewsNews Select_ViewsNews(modOperViewsNewsParams pNews)
+            {
+                return dLayer.Select_ViewsNews(pNews);
+            }
+
+
+            public bool Update_VersionNews(modOperViewsNewsParams pNews)
+            {
+                return dLayer.Update_VersionNews(pNews);
+
+            }
+
+            public VersionsNews Select_VersionNews(modOperViewsNewsParams pNews)
+            {
+                return dLayer.Select_VersionNews(pNews);
+
+            }
+
+    
         }
 
-        public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTime pClock)
-        {
-            return dLayer.SelectClockdateTime(pClock);
-        }
-
-        public List<modNews> SelectNews(modNewsParams pNews)
-        {
-            return dLayer.SelectNews(pNews);
-        }
-
-        public List<modPersonnal> SelectPersonnal(modLogin plogin)
-        {
-            return dLayer.SelectPersonnal(plogin);
-
-        }
-
-        public modNews InsertUpdateNew(modNewsParamsInsertUpdate pNews)
-        {
-
-            return dLayer.InsertUpdateNew(pNews);
-
-        }
-
-        public modidNews DeleteNews(modDeleteNewsParams pNews)
-        {
-
-            return dLayer.DeleteNews(pNews);
-
-        }
 
 
-        public modPermission InsertUpdatePermissions(modPermissionParams pPermission)
-        {
-
-            return dLayer.InsertUpdatePermissions(pPermission);
-
-        }
-
-        public List<modPermissionSelect> SelectPermissions(modPermissionSelectParams pPermission)
-        {
-            return dLayer.SelectPermissions(pPermission);
-
-        }
-
-
-        public List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews)
-        {
-            return dLayer.SelectNewsRelations(pNews);
-        }
-
-
-        public modNewsRelation AddNewsRelations(modAddNewsRelationParams pNews)
-        {
-            return dLayer.AddNewsRelations(pNews);
-
-        }
-
-
-        public bool RemoveNewsRelations(modRemoveNewsRelationParams pNews)
-        {
-            return dLayer.RemoveNewsRelations(pNews);
-        }
-
-
-        public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
-        {
-            return dLayer.SelectCatalogOptions(pCatalogOption);
-
-        }
-
-
-
-        public bool Update_ViewsNews(modOperViewsNewsParams pNews)
-        {
-            return dLayer.Update_ViewsNews(pNews);
-
-        }
-
-
-        public ViewsNews Select_ViewsNews(modOperViewsNewsParams pNews)
-        {
-            return dLayer.Select_ViewsNews(pNews);
-        }
-
-
-        public bool Update_VersionNews(modOperViewsNewsParams pNews)
-        {
-            return dLayer.Update_VersionNews(pNews);
-
-        }
-
-        public VersionsNews Select_VersionNews(modOperViewsNewsParams pNews)
-        {
-            return dLayer.Select_VersionNews(pNews);
-
-        }
-
-
-
-        }
-    }
-
-
-
-        public class BLFunction
+    public class BLFunction
     {
 
         public List<T> ConvertDataTable<T>(DataTable dt)

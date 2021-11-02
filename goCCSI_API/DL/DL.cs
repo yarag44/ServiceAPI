@@ -391,6 +391,105 @@ namespace goCCSI_API.DL
 
 
 
+        public bool Update_ViewsNews(modOperViewsNewsParams pNews)
+        {
+
+            SqlParameter[] par = new SqlParameter[]
+                    {
+
+                       
+                        new SqlParameter("@IdNews", pNews.IdNews)
+
+                    };
+
+            SqlHelper.ExecuteNonQuery(ConnectionDWP, CommandType.StoredProcedure, "nws.Update_ViewsNews", par);
+
+            return true;
+
+        }
+
+        public ViewsNews Select_ViewsNews(modOperViewsNewsParams pNews)
+        {
+
+
+            ViewsNews cNews = new ViewsNews();
+
+            SqlParameter[] par = new SqlParameter[]
+                   {
+
+                        new SqlParameter("@IdNews", pNews.IdNews)
+
+                   };
+
+
+            object objViews = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "nws.Select_ViewsNews", par);
+
+            if (objViews != null)
+            {
+                cNews.Views = Convert.ToInt32(objViews);
+            }
+            else
+            {
+                cNews.Views = Convert.ToInt32(0);
+            }
+            return cNews;
+
+
+        }
+
+
+        public bool Update_VersionNews(modOperViewsNewsParams pNews)
+        {
+
+
+            SqlParameter[] par = new SqlParameter[]
+                 {
+
+
+                        new SqlParameter("@IdNews", pNews.IdNews)
+
+                 };
+
+            SqlHelper.ExecuteNonQuery(ConnectionDWP, CommandType.StoredProcedure, "nws.Update_VersionNews", par);
+
+            return true;
+
+
+        }
+
+        public VersionsNews Select_VersionNews(modOperViewsNewsParams pNews)
+        {
+
+            VersionsNews cNews = new VersionsNews();
+
+            SqlParameter[] par = new SqlParameter[]
+                   {
+
+                        new SqlParameter("@IdNews", pNews.IdNews)
+
+                   };
+
+
+            object objVersion = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "nws.Select_VersionNews", par);
+
+            if (objVersion != null)
+            {
+                cNews.Version = Convert.ToInt32(objVersion);
+            }
+            else
+            {
+                cNews.Version = Convert.ToInt32(0);
+            }
+            return cNews;
+
+        }
+
+
+
+
+
+
+
 
     }
 }
