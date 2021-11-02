@@ -311,6 +311,109 @@ namespace goCCSI_API.DL
 
 
 
+        public bool Update_ViewsNews(modOperViewsNewsParams pNews)
+        {
+
+
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                       
+                        new SqlParameter("@IdNews", pNews.IdNews)
+
+                      };
+
+            SqlHelper.ExecuteNonQuery(ConnectionDWP, CommandType.StoredProcedure, "nws.Update_ViewsNews", par);
+
+            return true;
+
+        }
+
+
+        public ViewsNews Select_ViewsNews(modOperViewsNewsParams pNews)
+        {
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+
+                        new SqlParameter("@IdNews", pNews.IdNews)
+
+                      };
+
+            ViewsNews itm = new ViewsNews();
+                
+            object cviews  =   SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "nws.Select_ViewsNews", par);
+
+
+            if (cviews != null && cviews != DBNull.Value)
+                itm.Views = Convert.ToInt32(cviews);
+            else
+                itm.Views = 0;
+
+
+            return itm;
+
+        }
+
+
+        //NUEVO
+
+
+        public bool Update_VersionNews(modOperViewsNewsParams pNews)
+        {
+
+
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+
+                        new SqlParameter("@IdNews", pNews.IdNews)
+
+                      };
+
+            SqlHelper.ExecuteNonQuery(ConnectionDWP, CommandType.StoredProcedure, "nws.Update_VersionNews", par);
+
+            return true;
+
+        }
+
+
+        public VersionsNews Select_VersionNews(modOperViewsNewsParams pNews)
+        {
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+
+                        new SqlParameter("@IdNews", pNews.IdNews)
+
+                      };
+
+            VersionsNews itm = new VersionsNews();
+
+            object cviews = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "nws.Select_VersionNews", par);
+
+
+            if (cviews != null && cviews != DBNull.Value)
+                itm.Version = Convert.ToInt32(cviews);
+            else
+                itm.Version = 0;
+
+
+            return itm;
+
+        }
+
+
+
+
+
+
+
+
 
 
 

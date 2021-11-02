@@ -40,6 +40,20 @@ namespace goCCSI_API.Interfaces
 
         bool RemoveNewsRelations(modRemoveNewsRelationParams pNews);
 
+        
+        
+        
+        
+        
+        bool Update_ViewsNews(modOperViewsNewsParams pNews);
+
+        ViewsNews Select_ViewsNews(modOperViewsNewsParams pNews);
+
+
+        bool Update_VersionNews(modOperViewsNewsParams pNews);
+
+        VersionsNews Select_VersionNews(modOperViewsNewsParams pNews);
+
 
         #endregion
 

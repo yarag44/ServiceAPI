@@ -29,6 +29,18 @@ namespace goCCSI_API.Models
         public int idPersonnalInsert { get; set; }
 
 
+        public bool isDraft { get; set; }
+
+        public bool idStatus { get; set; }
+
+
+        public int Views { get; set; }
+
+        public int Version { get; set; }
+
+
+
+
     }
 
     public class modidNews
@@ -74,7 +86,7 @@ namespace goCCSI_API.Models
 
         public bool isDraft { get; set; }
 
-        public int idStatus { get; set; }
+        public bool idStatus { get; set; }
 
 
     }
@@ -157,9 +169,33 @@ namespace goCCSI_API.Models
     }
 
 
+    public class modOperViewsNewsParams
+    {
+
+        
+        public int IdNews { get; set; }
 
 
 
+    }
 
+
+
+    public class ViewsNews
+    {
+
+        public int Views { get; set; }
+
+
+    }
+
+
+    public class VersionsNews
+    {
+
+        public int Version { get; set; }
+
+
+    }
 
 }

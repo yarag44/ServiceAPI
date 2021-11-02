@@ -95,11 +95,38 @@ namespace goCCSI_API.BL
 
 
 
+        public bool Update_ViewsNews(modOperViewsNewsParams pNews)
+        {
+            return dLayer.Update_ViewsNews(pNews);
+
+        }
+
+
+        public ViewsNews Select_ViewsNews(modOperViewsNewsParams pNews)
+        {
+            return dLayer.Select_ViewsNews(pNews);
+        }
+
+
+        public bool Update_VersionNews(modOperViewsNewsParams pNews)
+        {
+            return dLayer.Update_VersionNews(pNews);
+
+        }
+
+        public VersionsNews Select_VersionNews(modOperViewsNewsParams pNews)
+        {
+            return dLayer.Select_VersionNews(pNews);
+
         }
 
 
 
-    public class BLFunction
+        }
+
+
+
+        public class BLFunction
     {
 
         public List<T> ConvertDataTable<T>(DataTable dt)
