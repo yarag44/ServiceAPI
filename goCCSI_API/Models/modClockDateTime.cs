@@ -43,8 +43,11 @@ namespace goCCSI_API.Models
 
         public int idStatus { get; set; }
 
+        public string checkType { get; set; }
 
+        public string startDate { get; set; }
 
+        public string endDate { get; set; }
 
 
         public string ClockDate { get; set; }
