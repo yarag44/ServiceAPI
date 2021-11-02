@@ -141,11 +141,6 @@ namespace goCCSI_API.Controllers
             }
 
 
-
-
-
-
-
         }
 
 
@@ -212,6 +207,104 @@ namespace goCCSI_API.Controllers
             }
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        [HttpPost]
+        [Route("Update_ViewsNews")]
+        public async Task<IActionResult> Update_ViewsNews(modOperViewsNewsParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                bool bResult = bLayer.Update_ViewsNews(pNews);
+                return await Task.Run(() => Ok(bResult));
+
+            }
+
+        }
+
+
+
+        [HttpPost]
+        [Route("Select_ViewsNews")]
+        public async Task<IActionResult> Select_ViewsNews(modOperViewsNewsParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                ViewsNews itm = bLayer.Select_ViewsNews(pNews);
+                return await Task.Run(() => Ok(itm));
+
+            }
+
+        }
+
+
+
+        [HttpPost]
+        [Route("Update_VersionNews")]
+        public async Task<IActionResult> Update_VersionNews(modOperViewsNewsParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                bool bResult = bLayer.Update_VersionNews(pNews);
+                return await Task.Run(() => Ok(bResult));
+
+            }
+
+        }
+
+
+
+
+        [HttpPost]
+        [Route("Select_VersionNews")]
+        public async Task<IActionResult> Select_VersionNews(modOperViewsNewsParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+                VersionsNews itm = bLayer.Select_VersionNews(pNews);
+                return await Task.Run(() => Ok(itm));
+
+            }
+
+        }
+
+
+
 
 
 
