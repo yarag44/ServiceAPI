@@ -82,10 +82,12 @@ namespace goCCSI_API.DL
                 new SqlParameter("@OPTION", pClock.Option),
                 new SqlParameter("@IDPERSONNAL", pClock.idPersonnal),
                 new SqlParameter("@IDSTATUS", pClock.idStatus),
-                new SqlParameter("@CLOCKDATE", pClock.ClockDate),
+                new SqlParameter("@STARTDATE", pClock.startDate),
+                new SqlParameter("@ENDDATE", pClock.endDate),
                 new SqlParameter("@IDCENTER", pClock.idCenter),
                 new SqlParameter("@IDDEPARTMENT", pClock.idDepartment),
-                new SqlParameter("@NAME", pClock.personnalName)
+                new SqlParameter("@SEARCH", pClock.personnalNoEmployee),
+                new SqlParameter("@IDCHECKTYPE", pClock.idStatus)
 
             };
 
