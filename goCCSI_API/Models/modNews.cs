@@ -38,7 +38,7 @@ namespace goCCSI_API.Models
 
         public int Version { get; set; }
 
-
+        public string PersonnalInsert { get; set; }
 
 
     }
