@@ -28,8 +28,11 @@ namespace goCCSI_API.Models
         public string personnalName { get; set; }
 
 
-        public string personnalCampaign { get; set; }
+        public int idDepartment { get; set; }
 
+        public string personnalDepartment { get; set; }
+
+        public int idCenter { get; set; }
 
         public string personnalCenter { get; set; }
 
