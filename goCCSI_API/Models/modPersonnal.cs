@@ -43,4 +43,47 @@ namespace goCCSI_API.Models
 
 
     }
+
+
+
+
+    public class modPersonalServicesParams
+    {
+
+        public int Option { get; set; }
+
+        public int idPersonnal { get; set; }
+
+        public int idService { get; set; }
+
+
+
+    }
+
+    public class modPersonalServices
+    {
+
+        
+        public int idPersonnal { get; set; }
+
+        public int idService { get; set; }
+
+
+
+    }
+
+
+    public class modPersonnalID
+    {
+
+        public int idPersonnalService { get; set; }
+
+
+
+    }
+
+
+
+
+
 }

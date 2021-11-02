@@ -10,6 +10,8 @@ namespace goCCSI_API.Interfaces
     {
 
         List<modPersonnal> SelectPersonnal(modLogin plogin);
+        List<modPersonalServices> SelectPersonnalServices(modPersonalServicesParams cPer);
+        modPersonnalID InsertDeletePersonnalServices(modPersonalServicesParams pPer);
 
 
 
@@ -56,6 +58,42 @@ namespace goCCSI_API.Interfaces
 
 
         #endregion
+
+
+
+
+
+        #region ROLES
+
+
+
+        modRolesID InsertUpdateRole(modRolesParams pRoles);
+        List<modRolesSelectReturn> SelectRoles(modRolesSelect pRoles);
+
+
+        modRolesPermissionsID InsertDeleteRolesPermissions(modRolesPermissionsParams pRolesPer);
+        List<modRolesPermissions> SelectRolesPermissions(modRolesPermissionsParams pRolesPer);
+
+
+
+
+        #endregion
+
+
+        #region SERVICE
+
+        modServicesID InsertUpdateServices(modServicesParams pServices);
+        List<modServicesSelectReturn> SelectServices(modServicesSelect pServices);
+
+
+        modServicesRolesID InsertDeleteServicesRoles(modServicesRolesParams pServRoles);
+        List<modServicesRoles> SelectServicesRoles(modServicesRolesParams pServRoles);
+
+
+
+        #endregion
+
+
 
 
         #region PERMISSIOONS
