@@ -127,8 +127,80 @@ namespace goCCSI_API.BL
 
             }
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+        public List<modPersonalServices> SelectPersonnalServices(modPersonalServicesParams cPer)
+        {
+
+            return dLayer.SelectPersonnalServices(cPer);
+
         }
+
+        public modPersonnalID InsertDeletePersonnalServices(modPersonalServicesParams pPer)
+        {
+
+            return dLayer.InsertDeletePersonnalServices(pPer);
+
+        }
+
+        public modRolesPermissionsID InsertDeleteRolesPermissions(modRolesPermissionsParams pRolesPer)
+        {
+            return dLayer.InsertDeleteRolesPermissions(pRolesPer);
+        }
+
+
+        public List<modRolesPermissions> SelectRolesPermissions(modRolesPermissionsParams pRolesPer)
+        {
+            return dLayer.SelectRolesPermissions(pRolesPer);
+
+        }
+
+        public modServicesRolesID InsertDeleteServicesRoles(modServicesRolesParams pServRoles)
+        {
+            return dLayer.InsertDeleteServicesRoles(pServRoles);
+        }
+
+
+        public List<modServicesRoles> SelectServicesRoles(modServicesRolesParams pServRoles)
+        {
+            return dLayer.SelectServicesRoles(pServRoles);
+        }
+
+
+        public modRolesID InsertUpdateRole(modRolesParams pRoles)
+        {
+            return dLayer.InsertUpdateRole(pRoles);
+        }
+
+
+        public List<modRolesSelectReturn> SelectRoles(modRolesSelect pRoles)
+        {
+            return dLayer.SelectRoles(pRoles);
+        }
+
+        public modServicesID InsertUpdateServices(modServicesParams pServices)
+        {
+            return dLayer.InsertUpdateServices(pServices);
+        }
+
+
+        public List<modServicesSelectReturn> SelectServices(modServicesSelect pServices)
+        {
+            return dLayer.SelectServices(pServices);
+        }
+
+
+  }
 
 
 
