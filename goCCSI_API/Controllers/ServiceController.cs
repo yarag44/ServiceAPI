@@ -33,8 +33,8 @@ namespace goCCSI_API.Controllers
 
 
         [HttpPost]
-        [Route("InsertDeleteServicesRoles")]
-        public async Task<IActionResult> InsertDeleteServicesRoles(modServicesRolesParams pServices)
+        [Route("InsertDeleteServicesPermissions")]
+        public async Task<IActionResult> InsertDeleteServicesPermissions(modServicesPermissionParams pServices)
         {
 
             if (!ModelState.IsValid)
@@ -48,14 +48,45 @@ namespace goCCSI_API.Controllers
 
                 BL.BL bLayer = new BL.BL();
 
-                modServicesRolesID ServicesRolesID = bLayer.InsertDeleteServicesRoles(pServices);
+                modServicesPermissionID ServicesPermissionID = bLayer.InsertDeleteServicesPermissions(pServices);
 
-                return await Task.Run(() => Ok(ServicesRolesID));
+                return await Task.Run(() => Ok(ServicesPermissionID));
 
             }
 
 
         }
+
+
+
+        [HttpPost]
+        [Route("SelectServicesPermissions")]
+        public async Task<IActionResult> SelectServicesPermissions(modServicesPermissionParams pServices)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modServicesPermissions> lstServices = bLayer.SelectServicesPermissions(pServices);
+
+                return await Task.Run(() => Ok(lstServices));
+
+            }
+
+
+        }
+
+
+
+
 
 
 
@@ -112,31 +143,6 @@ namespace goCCSI_API.Controllers
         }
 
 
-
-        [HttpPost]
-        [Route("SelectServicesRoles")]
-        public async Task<IActionResult> SelectServicesRoles(modServicesRolesParams pServices)
-        {
-
-            if (!ModelState.IsValid)
-            {
-
-                return BadRequest("Error 404");
-
-            }
-            else
-            {
-
-                BL.BL bLayer = new BL.BL();
-
-                List<modServicesRoles> lstServices = bLayer.SelectServicesRoles(pServices);
-
-                return await Task.Run(() => Ok(lstServices));
-
-            }
-
-
-        }
 
 
 

@@ -153,40 +153,25 @@ namespace goCCSI_API.BL
 
         }
 
-        public modRolesPermissionsID InsertDeleteRolesPermissions(modRolesPermissionsParams pRolesPer)
+
+    
+
+        public List<modServicesPermissions> SelectServicesPermissions(modServicesPermissionParams cServ)
         {
-            return dLayer.InsertDeleteRolesPermissions(pRolesPer);
+            return dLayer.SelectServicesPermissions(cServ);
         }
 
 
-        public List<modRolesPermissions> SelectRolesPermissions(modRolesPermissionsParams pRolesPer)
+        public modServicesPermissionID InsertDeleteServicesPermissions(modServicesPermissionParams cServ)
         {
-            return dLayer.SelectRolesPermissions(pRolesPer);
-
-        }
-
-        public modServicesRolesID InsertDeleteServicesRoles(modServicesRolesParams pServRoles)
-        {
-            return dLayer.InsertDeleteServicesRoles(pServRoles);
+            return dLayer.InsertDeleteServicesPermissions(cServ);
         }
 
 
-        public List<modServicesRoles> SelectServicesRoles(modServicesRolesParams pServRoles)
-        {
-            return dLayer.SelectServicesRoles(pServRoles);
-        }
 
 
-        public modRolesID InsertUpdateRole(modRolesParams pRoles)
-        {
-            return dLayer.InsertUpdateRole(pRoles);
-        }
 
 
-        public List<modRolesSelectReturn> SelectRoles(modRolesSelect pRoles)
-        {
-            return dLayer.SelectRoles(pRoles);
-        }
 
         public modServicesID InsertUpdateServices(modServicesParams pServices)
         {

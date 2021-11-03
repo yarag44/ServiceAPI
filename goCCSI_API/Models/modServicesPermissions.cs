@@ -5,36 +5,36 @@ using System.Threading.Tasks;
 
 namespace goCCSI_API.Models
 {
-    public class modServicesRoles
+    public class modServicesPermissions
     {
 
         public int idService { get; set; }
 
-        public int idRole { get; set; }
+        public int idPermission { get; set; }
 
 
 
     }
 
 
-    public class modServicesRolesParams
+    public class modServicesPermissionParams
     {
 
         public int Option { get; set; }
 
         public int idService { get; set; }
 
-        public int idRole { get; set; }
+        public int idPermission { get; set; }
 
 
 
     }
 
 
-    public class modServicesRolesID
+    public class modServicesPermissionID
     {
 
-        public int IdServiceRole { get; set; }
+        public int IdServicePermission { get; set; }
 
     }
 

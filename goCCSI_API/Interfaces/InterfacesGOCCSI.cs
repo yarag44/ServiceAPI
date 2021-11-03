@@ -62,32 +62,14 @@ namespace goCCSI_API.Interfaces
 
 
 
-
-        #region ROLES
-
-
-
-        modRolesID InsertUpdateRole(modRolesParams pRoles);
-        List<modRolesSelectReturn> SelectRoles(modRolesSelect pRoles);
-
-
-        modRolesPermissionsID InsertDeleteRolesPermissions(modRolesPermissionsParams pRolesPer);
-        List<modRolesPermissions> SelectRolesPermissions(modRolesPermissionsParams pRolesPer);
-
-
-
-
-        #endregion
-
-
         #region SERVICE
 
         modServicesID InsertUpdateServices(modServicesParams pServices);
         List<modServicesSelectReturn> SelectServices(modServicesSelect pServices);
 
 
-        modServicesRolesID InsertDeleteServicesRoles(modServicesRolesParams pServRoles);
-        List<modServicesRoles> SelectServicesRoles(modServicesRolesParams pServRoles);
+        modServicesPermissionID InsertDeleteServicesPermissions(modServicesPermissionParams cServ);
+        List<modServicesPermissions> SelectServicesPermissions(modServicesPermissionParams cServ);
 
 
 
