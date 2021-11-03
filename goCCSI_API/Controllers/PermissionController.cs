@@ -69,6 +69,31 @@ namespace goCCSI_API.Controllers
 
         }
 
+        [HttpPost]
+        [Route("DeletePermission")]
+        public async Task<IActionResult> DeletePermission(modDeletePermissionParams pPermission)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modidPermission cPermission = bLayer.DeletePermission(pPermission);
+
+                return await Task.Run(() => Ok(cPermission));
+
+            }
+
+
+        }
+
 
     }
 }

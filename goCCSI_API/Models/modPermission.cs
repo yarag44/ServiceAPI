@@ -64,6 +64,17 @@ namespace goCCSI_API.Models
 
 
     }
+    public class modidPermission
+    {
+        public int idPermission { get; set; }
 
+    }
+
+
+    public class modDeletePermissionParams
+    {
+        public int idPermission { get; set; }
+
+    }
 
 }

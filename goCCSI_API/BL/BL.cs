@@ -74,8 +74,15 @@ namespace goCCSI_API.BL
 
             }
 
+            public modidPermission DeletePermission(modDeletePermissionParams pPermission)
+            {
 
-            public List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews)
+                return dLayer.DeletePermission(pPermission);
+
+            }
+
+
+        public List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews)
             {
                 return dLayer.SelectNewsRelations(pNews);
             }

@@ -368,6 +368,44 @@ namespace goCCSI_API.DL
 
         }
 
+
+        public modidPermission DeletePermission(modDeletePermissionParams pPermission)
+        {
+
+            modidPermission cidPermission = new modidPermission();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@IDPERMISSION", pPermission.idPermission),
+
+
+                      };
+
+            object idPermission = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.DeletePermission", par);
+
+
+
+
+            if (idPermission != null)
+            {
+                cidPermission.idPermission = Convert.ToInt32(idPermission);
+
+            }
+            else
+            {
+                cidPermission.idPermission = (0);
+            }
+
+            return cidPermission;
+
+
+        }
+
+
+
+
         public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
         {
             List<modCatalogOptionsSelect> lstCatalogOptions = new List<modCatalogOptionsSelect>();
