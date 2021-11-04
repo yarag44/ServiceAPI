@@ -143,6 +143,32 @@ namespace goCCSI_API.Controllers
         }
 
 
+        [HttpPost]
+        [Route("DeleteServices")]
+        public async Task<IActionResult> DeleteServices(modDeleteServicesParams pServices)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modServicesID cNews = bLayer.DeleteServices(pServices);
+
+                return await Task.Run(() => Ok(cNews));
+
+            }
+
+
+        }
+
+
 
 
 

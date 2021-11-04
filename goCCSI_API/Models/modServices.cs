@@ -50,5 +50,14 @@ namespace goCCSI_API.Models
 
     }
 
+    public class modDeleteServicesParams
+    {
+
+        public int idService { get; set; }
+
+        public int idPersonnalLastModify { get; set; }
+
+    }
+
 
 }

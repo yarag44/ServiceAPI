@@ -192,6 +192,15 @@ namespace goCCSI_API.BL
         }
 
 
+        public modServicesID DeleteServices(modDeleteServicesParams pServices)
+        {
+
+            return dLayer.DeleteServices(pServices);
+
+        }
+
+
+
         public List<modPersonnal> Select_CatPersonnalFilters(modPersonnalFiltersParams pPer)
         {
             return dLayer.Select_CatPersonnalFilters(pPer);
