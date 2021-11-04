@@ -41,6 +41,14 @@ namespace goCCSI_API.Models
         public string PersonnalInsert { get; set; }
 
 
+        public int idViewDeptos { get; set; }
+
+        public int idViewPositions { get; set; }
+
+
+
+
+
     }
 
     public class modidNews
@@ -87,6 +95,12 @@ namespace goCCSI_API.Models
         public bool isDraft { get; set; }
 
         public bool idStatus { get; set; }
+
+
+        public int idViewDeptos { get; set; }
+
+        public int idViewPositions { get; set; }
+
 
 
     }

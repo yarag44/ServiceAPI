@@ -185,11 +185,42 @@ namespace goCCSI_API.BL
         }
 
 
-  }
+        public List<modPersonnal> Select_CatPersonnalFilters(modPersonnalFiltersParams pPer)
+        {
+            return dLayer.Select_CatPersonnalFilters(pPer);
+        }
 
 
 
-    public class BLFunction
+        public modPersonnalRolesID InsertDeletePersonnalRoles(modPersonnalRolesParams cPer)
+        {
+            return dLayer.InsertDeletePersonnalRoles(cPer);
+        }
+
+
+        public List<modPersonnalRoles> SelectPersonnalRoles(modPersonnalRolesParams cPer)
+        {
+
+            return dLayer.SelectPersonnalRoles(cPer);
+        }
+
+
+        public List<modRoles> SelectRoles(modRolesParams pRoles)
+        {
+
+            return dLayer.SelectRoles(pRoles);
+
+        }
+
+
+
+
+
+        }
+
+
+
+        public class BLFunction
     {
 
         public List<T> ConvertDataTable<T>(DataTable dt)

@@ -11,9 +11,23 @@ namespace goCCSI_API.Interfaces
 
         List<modPersonnal> SelectPersonnal(modLogin plogin);
         List<modPersonalServices> SelectPersonnalServices(modPersonalServicesParams cPer);
+
+
+
+
+
+        modPersonnalRolesID InsertDeletePersonnalRoles(modPersonnalRolesParams cPer);
+        List<modPersonnalRoles> SelectPersonnalRoles(modPersonnalRolesParams cPer);
+
+
+
+
+
+
+
         modPersonnalID InsertDeletePersonnalServices(modPersonalServicesParams pPer);
 
-
+        List<modPersonnal> Select_CatPersonnalFilters(modPersonnalFiltersParams pPer);
 
 
         #region CLOCK
@@ -55,6 +69,16 @@ namespace goCCSI_API.Interfaces
         bool Update_VersionNews(modOperViewsNewsParams pNews);
 
         VersionsNews Select_VersionNews(modOperViewsNewsParams pNews);
+
+
+        #endregion
+
+
+
+        #region ROLES
+
+
+        List<modRoles> SelectRoles(modRolesParams pRoles);
 
 
         #endregion

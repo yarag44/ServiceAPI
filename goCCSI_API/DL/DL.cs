@@ -46,6 +46,32 @@ namespace goCCSI_API.DL
 
         }
 
+        //Select_CatPersonnalFilters
+        public List<modPersonnal> Select_CatPersonnalFilters(modPersonnalFiltersParams pPer)
+        {
+            List<modPersonnal> lstPersonnal = new List<modPersonnal>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+                new SqlParameter("@Option", pPer.Option),
+                new SqlParameter("@NoEmployee", pPer.NoEmployee),
+                new SqlParameter("@Name", pPer.Name),
+                new SqlParameter("@IdCenter", pPer.IdCenter),
+                new SqlParameter("@IdDepartment", pPer.IdDepartment),
+                new SqlParameter("@IdPersonnaltype", pPer.IdPersonnalType)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.Select_CatPersonnalFilters", par).Tables[0];
+
+            lstPersonnal = bFunc.ConvertDataTable<modPersonnal>(dt);
+
+            return lstPersonnal;
+
+        }
+
+
 
 
         public int InsertClockDateTime(modClockDateTime pClock)
@@ -181,7 +207,9 @@ namespace goCCSI_API.DL
                         new SqlParameter("@OrderNew", pNews.OrderNew),
                         new SqlParameter("@idPersonnalInsert", pNews.idPersonnalInsert),
                         new SqlParameter("@Isdraft", pNews.isDraft),
-                        new SqlParameter("@idStatus", pNews.idStatus)
+                        new SqlParameter("@idStatus", pNews.idStatus),
+                        new SqlParameter("@idViewDeptos", pNews.idViewDeptos),
+                        new SqlParameter("@idViewPositions", pNews.idViewPositions)
 
                       };
 
@@ -719,6 +747,70 @@ namespace goCCSI_API.DL
 
 
 
+        public modPersonnalRolesID InsertDeletePersonnalRoles(modPersonnalRolesParams cPer)
+        {
+
+            modPersonnalRolesID cPersonnalRoleID = new modPersonnalRolesID();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+           {
+
+                new SqlParameter("@OPTION", cPer.Option),
+                new SqlParameter("@IDPERSONNAL", cPer.idPersonnal),
+                new SqlParameter("@IDROLE", cPer.idRole)
+
+           };
+
+            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.InsertDeletePersonnalRoles", par);
+
+            if (objID != null)
+            {
+                cPersonnalRoleID.idPersonnalRole = Convert.ToInt32(objID);
+                //bFunc.CopierProperty(pPermission, cPermission);
+            }
+            else
+            {
+                cPersonnalRoleID.idPersonnalRole = Convert.ToInt32(0);
+                //bFunc.CopierProperty(pPermission, cPermission);
+            }
+            return cPersonnalRoleID;
+
+
+        }
+
+        public List<modPersonnalRoles> SelectPersonnalRoles(modPersonnalRolesParams cPer)
+        {
+
+            List<modPersonnalRoles> lstPersonnalRoles = new List<modPersonnalRoles>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cPer.Option),
+                new SqlParameter("@IDPERSONNAL", cPer.idPersonnal),
+                new SqlParameter("@IDROLE", cPer.idRole)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectPersonnalRoles", par).Tables[0];
+
+            lstPersonnalRoles = bFunc.ConvertDataTable<modPersonnalRoles>(dt);
+
+            return lstPersonnalRoles;
+
+
+        }
+
+
+
+
+
+
+
+
+
         public modServicesPermissionID InsertDeleteServicesPermissions(modServicesPermissionParams cServ)
         {
 
@@ -773,6 +865,7 @@ namespace goCCSI_API.DL
 
 
         }
+
 
 
 
@@ -834,6 +927,35 @@ namespace goCCSI_API.DL
         }
 
 
+
+
+
+
+
+
+        public List<modRoles> SelectRoles(modRolesParams pRoles)
+        {
+
+            List<modRoles> lstRoles = new List<modRoles>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+                     {
+
+                        new SqlParameter("@OPTION", pRoles.Option),
+                        new SqlParameter("@IDROLE", pRoles.IdRole),
+                        new SqlParameter("@ROLE", pRoles.Role)
+                     };
+
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "rol.SelectRoles", par).Tables[0];
+
+            lstRoles = bFunc.ConvertDataTable<modRoles>(dt);
+
+            return lstRoles;
+
+
+        }
 
 
 

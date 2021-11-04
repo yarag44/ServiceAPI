@@ -84,6 +84,63 @@ namespace goCCSI_API.Models
 
 
 
+    public class modPersonnalFiltersParams
+    {
+        public int Option { get; set; }
+
+        public string NoEmployee { get; set; }
+
+        public string Name { get; set; }
+
+        public int IdCenter { get; set; }
+
+        public int IdDepartment { get; set; }
+
+        public int IdPersonnalType { get; set; }
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    public class modPersonnalRolesParams
+    {
+
+        public int Option { get; set; }
+
+        public int idPersonnal { get; set; }
+
+        public int idRole { get; set; }
+
+
+    }
+
+
+    public class modPersonnalRoles
+    {
+
+        public int idPersonnal { get; set; }
+
+        public int idRole { get; set; }
+
+
+    }
+
+    public class modPersonnalRolesID
+    {
+
+        public int idPersonnalRole { get; set; }
+        
+    }
+
 
 
 }

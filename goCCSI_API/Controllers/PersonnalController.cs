@@ -58,8 +58,6 @@ namespace goCCSI_API.Controllers
 
         }
 
-
-
         [HttpPost]
         [Route("InsertDeletePersonnalServices")]
         public async Task<IActionResult> InsertDeletePersonnalServices(modPersonalServicesParams pPer)
@@ -89,6 +87,105 @@ namespace goCCSI_API.Controllers
 
 
         }
+
+
+
+
+
+
+
+
+
+        [HttpPost]
+        [Route("Select_CatPersonnalFilters")]
+        public async Task<IActionResult> Select_CatPersonnalFilters(modPersonnalFiltersParams pPer)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modPersonnal> lstPersonnal = bLayer.Select_CatPersonnalFilters(pPer);
+
+                return await Task.Run(() => Ok(lstPersonnal));
+
+            }
+
+
+        }
+
+
+        [HttpPost]
+        [Route("InsertDeletePersonnalRoles")]
+        public async Task<IActionResult> InsertDeletePersonnalRoles(modPersonnalRolesParams pPer)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modPersonnalRolesID cPerID = bLayer.InsertDeletePersonnalRoles(pPer);
+
+                return await Task.Run(() => Ok(cPerID));
+
+            }
+
+
+
+
+
+
+
+        }
+
+        [HttpPost]
+        [Route("SelectPersonnalRoles")]
+        public async Task<IActionResult> SelectPersonnalRoles(modPersonnalRolesParams pPer)
+        {
+
+            
+            
+            
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modPersonnalRoles> lstPerRoles = bLayer.SelectPersonnalRoles(pPer);
+
+                return await Task.Run(() => Ok(lstPerRoles));
+
+            }
+
+
+
+
+
+        }
+
+
+
+
 
 
 
