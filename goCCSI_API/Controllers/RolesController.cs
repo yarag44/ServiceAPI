@@ -57,6 +57,57 @@ namespace goCCSI_API.Controllers
         }
 
 
+        [HttpPost]
+        [Route("SelectRolesServices")]
+        public async Task<IActionResult> SelectRolesServices(modRolesServicesParams pRoles)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modRolesServices> lstRolesServices = bLayer.SelectRolesServices(pRoles);
+
+                return await Task.Run(() => Ok(lstRolesServices));
+
+            }
+
+
+        }
+
+        [HttpPost]
+        [Route("InsertDeleteRolesServices")]
+        public async Task<IActionResult> InsertDeleteRolesServices(modRolesServicesParams pRoles)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modRolesServicesID RolesServicesID = bLayer.InsertDeleteRolesServices(pRoles);
+
+                return await Task.Run(() => Ok(RolesServicesID));
+
+            }
+
+
+        }
+
+
 
 
 

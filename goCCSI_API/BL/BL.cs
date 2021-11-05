@@ -10,137 +10,129 @@ using System.Threading.Tasks;
 namespace goCCSI_API.BL
 {
     public class BL: InterfacesGOCCSI
+    {
+        
+        DL.DL dLayer;
+
+        public BL()
+        {
+            dLayer = new DL.DL();
+        }
+
+        public int InsertClockDateTime(modClockDateTime pClock)
+        {
+            return dLayer.InsertClockDateTime(pClock);
+        }
+
+        public modNews InsertNew(modNewsParamsInsert pNews)
         {
 
-            DL.DL dLayer;
+            return dLayer.InsertNew(pNews);
+        }
 
-            public BL()
-            {
-                dLayer = new DL.DL();
-            }
+        public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTime pClock)
+        {
+            return dLayer.SelectClockdateTime(pClock);
+        }
 
-            public int InsertClockDateTime(modClockDateTime pClock)
-            {
-                return dLayer.InsertClockDateTime(pClock);
-            }
+        public List<modNews> SelectNews(modNewsParams pNews)
+        {
+            return dLayer.SelectNews(pNews);
+        }
 
-            public modNews InsertNew(modNewsParamsInsert pNews)
-            {
+        public List<modPersonnal> SelectPersonnal(modLogin plogin)
+        {
+            return dLayer.SelectPersonnal(plogin);
 
-                return dLayer.InsertNew(pNews);
-            }
+        }
 
-            public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTime pClock)
-            {
-                return dLayer.SelectClockdateTime(pClock);
-            }
+        public modNews InsertUpdateNew(modNewsParamsInsertUpdate pNews)
+        {
 
-            public List<modNews> SelectNews(modNewsParams pNews)
-            {
-                return dLayer.SelectNews(pNews);
-            }
+            return dLayer.InsertUpdateNew(pNews);
 
-            public List<modPersonnal> SelectPersonnal(modLogin plogin)
-            {
-                return dLayer.SelectPersonnal(plogin);
+        }
 
-            }
+        public modidNews DeleteNews(modDeleteNewsParams pNews)
+        {
 
-            public modNews InsertUpdateNew(modNewsParamsInsertUpdate pNews)
-            {
+            return dLayer.DeleteNews(pNews);
 
-                return dLayer.InsertUpdateNew(pNews);
-
-            }
-
-            public modidNews DeleteNews(modDeleteNewsParams pNews)
-            {
-
-                return dLayer.DeleteNews(pNews);
-
-            }
+        }
 
 
-            public modPermission InsertUpdatePermissions(modPermissionParams pPermission)
-            {
+        public modPermission InsertUpdatePermissions(modPermissionParams pPermission)
+        {
 
-                return dLayer.InsertUpdatePermissions(pPermission);
+            return dLayer.InsertUpdatePermissions(pPermission);
 
-            }
+        }
 
-            public List<modPermissionSelect> SelectPermissions(modPermissionSelectParams pPermission)
-            {
-                return dLayer.SelectPermissions(pPermission);
+        public List<modPermissionSelect> SelectPermissions(modPermissionSelectParams pPermission)
+        {
+            return dLayer.SelectPermissions(pPermission);
 
-            }
+        }
 
-            public modidPermission DeletePermission(modDeletePermissionParams pPermission)
-            {
+        public modidPermission DeletePermission(modDeletePermissionParams pPermission)
+        {
 
-                return dLayer.DeletePermission(pPermission);
+            return dLayer.DeletePermission(pPermission);
 
-            }
+        }
 
 
         public List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews)
-            {
-                return dLayer.SelectNewsRelations(pNews);
-            }
+        {
+            return dLayer.SelectNewsRelations(pNews);
+        }
 
 
-            public modNewsRelation AddNewsRelations(modAddNewsRelationParams pNews)
-            {
-                return dLayer.AddNewsRelations(pNews);
+        public modNewsRelation AddNewsRelations(modAddNewsRelationParams pNews)
+        {
+            return dLayer.AddNewsRelations(pNews);
 
-            }
-
-
-            public bool RemoveNewsRelations(modRemoveNewsRelationParams pNews)
-            {
-                return dLayer.RemoveNewsRelations(pNews);
-            }
+        }
 
 
-            public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
-            {
-                return dLayer.SelectCatalogOptions(pCatalogOption);
-
-            }
-
+        public bool RemoveNewsRelations(modRemoveNewsRelationParams pNews)
+        {
+            return dLayer.RemoveNewsRelations(pNews);
+        }
 
 
-            public bool Update_ViewsNews(modOperViewsNewsParams pNews)
-            {
-                return dLayer.Update_ViewsNews(pNews);
+        public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
+        {
+            return dLayer.SelectCatalogOptions(pCatalogOption);
 
-            }
-
-
-            public ViewsNews Select_ViewsNews(modOperViewsNewsParams pNews)
-            {
-                return dLayer.Select_ViewsNews(pNews);
-            }
-
-
-            public bool Update_VersionNews(modOperViewsNewsParams pNews)
-            {
-                return dLayer.Update_VersionNews(pNews);
-
-            }
-
-            public VersionsNews Select_VersionNews(modOperViewsNewsParams pNews)
-            {
-                return dLayer.Select_VersionNews(pNews);
-
-            }
+        }
 
 
 
+        public bool Update_ViewsNews(modOperViewsNewsParams pNews)
+        {
+            return dLayer.Update_ViewsNews(pNews);
+
+        }
 
 
+        public ViewsNews Select_ViewsNews(modOperViewsNewsParams pNews)
+        {
+            return dLayer.Select_ViewsNews(pNews);
+        }
 
 
+        public bool Update_VersionNews(modOperViewsNewsParams pNews)
+        {
+            return dLayer.Update_VersionNews(pNews);
 
+        }
+
+        public VersionsNews Select_VersionNews(modOperViewsNewsParams pNews)
+        {
+            return dLayer.Select_VersionNews(pNews);
+
+        }
 
 
 
@@ -177,9 +169,6 @@ namespace goCCSI_API.BL
 
 
 
-
-
-
         public modServicesID InsertUpdateServices(modServicesParams pServices)
         {
             return dLayer.InsertUpdateServices(pServices);
@@ -207,7 +196,6 @@ namespace goCCSI_API.BL
         }
 
 
-
         public modPersonnalRolesID InsertDeletePersonnalRoles(modPersonnalRolesParams cPer)
         {
             return dLayer.InsertDeletePersonnalRoles(cPer);
@@ -220,7 +208,7 @@ namespace goCCSI_API.BL
             return dLayer.SelectPersonnalRoles(cPer);
         }
 
-
+        
         public List<modRoles> SelectRoles(modRolesParams pRoles)
         {
 
@@ -228,15 +216,23 @@ namespace goCCSI_API.BL
 
         }
 
+        public List<modRolesServices> SelectRolesServices(modRolesServicesParams pRoles)
+        {
+            return dLayer.SelectRolesServices(pRoles);
+        }
 
-
-
-
+        public modRolesServicesID InsertDeleteRolesServices(modRolesServicesParams pRoles)
+        {
+            return dLayer.InsertDeleteRolesServices(pRoles);
         }
 
 
 
-        public class BLFunction
+    }
+
+
+
+    public class BLFunction
     {
 
         public List<T> ConvertDataTable<T>(DataTable dt)
@@ -287,11 +283,7 @@ namespace goCCSI_API.BL
             }
         }
 
-
-
     }
-
-
 
 
 }
