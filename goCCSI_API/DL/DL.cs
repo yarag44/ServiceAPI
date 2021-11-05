@@ -1018,7 +1018,39 @@ namespace goCCSI_API.DL
 
 
         }
+        public modServicesID DeleteServices(modDeleteServicesParams pServices)
+        {
 
+            modServicesID cidService = new modServicesID();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@IDSERVICE", pServices.idService),
+                        new SqlParameter("@IDPERSONNAL", pServices.idPersonnalLastModify)
+
+                      };
+
+            object idServices = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "ser.DeleteServices", par);
+
+
+
+
+            if (idServices != null)
+            {
+                cidService.IdService = Convert.ToInt32(idServices);
+
+            }
+            else
+            {
+                cidService.IdService = (0);
+            }
+
+            return cidService;
+
+
+        }
 
 
 

@@ -100,6 +100,9 @@ namespace goCCSI_API.Interfaces
         List<modServicesPermissions> SelectServicesPermissions(modServicesPermissionParams cServ);
 
 
+        modServicesID DeleteServices(modDeleteServicesParams pServ);
+
+
 
         #endregion
 
