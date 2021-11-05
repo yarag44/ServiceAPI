@@ -209,7 +209,8 @@ namespace goCCSI_API.DL
                         new SqlParameter("@Isdraft", pNews.isDraft),
                         new SqlParameter("@idStatus", pNews.idStatus),
                         new SqlParameter("@idViewDeptos", pNews.idViewDeptos),
-                        new SqlParameter("@idViewPositions", pNews.idViewPositions)
+                        new SqlParameter("@idViewPositions", pNews.idViewPositions),
+                        new SqlParameter("@isPendingPublish", pNews.IsPendingPublish)
 
                       };
 
@@ -286,6 +287,36 @@ namespace goCCSI_API.DL
             return lstRelations;
 
         }
+
+
+
+
+        public List<modNewsRelationCatalog> SelectNewsRelationsAllCatalogs(modNewsRelationAllCatalogsParams pNews)
+        {
+            List<modNewsRelationCatalog> lstRelations = new List<modNewsRelationCatalog>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+                
+                new SqlParameter("@IDNEWS", pNews.IdNews)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "nws.SelectNewsRelationsAllCatalogs", par).Tables[0];
+
+            lstRelations = bFunc.ConvertDataTable<modNewsRelationCatalog>(dt);
+
+            return lstRelations;
+
+        }
+
+
+
+
+
+
+
 
 
         public modNewsRelation AddNewsRelations(modAddNewsRelationParams pNews)
@@ -453,6 +484,30 @@ namespace goCCSI_API.DL
             return lstCatalogOptions;
 
         }
+
+
+
+        public List<modCatalogOptionsSelect> SelectCatalogOptionsManyCatalogs(modCatalogOptionsManyCatalogsParams pCatalogOption)
+        {
+            List<modCatalogOptionsSelect> lstCatalogOptions = new List<modCatalogOptionsSelect>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+                new SqlParameter("@OPTION", pCatalogOption.Option),
+                new SqlParameter("@IDCATALOGS", pCatalogOption.idCatalogs)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectCatalogOptionsManyCatalogs", par).Tables[0];
+
+            lstCatalogOptions = bFunc.ConvertDataTable<modCatalogOptionsSelect>(dt);
+
+            return lstCatalogOptions;
+
+        }
+
+
 
 
 

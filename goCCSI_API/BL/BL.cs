@@ -87,6 +87,10 @@ namespace goCCSI_API.BL
             return dLayer.SelectNewsRelations(pNews);
         }
 
+        public List<modNewsRelationCatalog> SelectNewsRelationsAllCatalogs(modNewsRelationAllCatalogsParams pNews)
+        {
+            return dLayer.SelectNewsRelationsAllCatalogs(pNews);
+        }
 
         public modNewsRelation AddNewsRelations(modAddNewsRelationParams pNews)
         {
@@ -108,6 +112,10 @@ namespace goCCSI_API.BL
         }
 
 
+        public List<modCatalogOptionsSelect> SelectCatalogOptionsManyCatalogs(modCatalogOptionsManyCatalogsParams pCatalogOption)
+        {
+            return dLayer.SelectCatalogOptionsManyCatalogs(pCatalogOption);
+        }
 
         public bool Update_ViewsNews(modOperViewsNewsParams pNews)
         {

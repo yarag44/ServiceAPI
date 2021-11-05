@@ -168,6 +168,33 @@ namespace goCCSI_API.Controllers
 
 
         [HttpPost]
+        [Route("SelectNewsRelationsAllCatalogs")]
+
+        public async Task<IActionResult> SelectNewsRelationsAllCatalogs(modNewsRelationAllCatalogsParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                List<modNewsRelationCatalog> lstRelations = bLayer.SelectNewsRelationsAllCatalogs(pNews);
+                return await Task.Run(() => Ok(lstRelations));
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+        [HttpPost]
         [Route("AddNewsRelations")]
 
         public async Task<IActionResult> AddNewsRelations(modAddNewsRelationParams pNews)

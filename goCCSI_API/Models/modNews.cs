@@ -45,7 +45,7 @@ namespace goCCSI_API.Models
 
         public int idViewPositions { get; set; }
 
-
+        public bool IsPendingPublish { get; set; }
 
 
 
@@ -101,7 +101,7 @@ namespace goCCSI_API.Models
 
         public int idViewPositions { get; set; }
 
-
+        public bool IsPendingPublish { get; set; }
 
     }
 
@@ -146,6 +146,20 @@ namespace goCCSI_API.Models
 
     }
 
+    public class modNewsRelationCatalog
+    {
+
+        public int idCatalog { get; set; }
+
+        public int idCatalogOptions { get; set; }
+
+        public string OptionValue { get; set; }
+
+
+    }
+
+
+
 
     public class modNewsRelationParams
     {
@@ -157,7 +171,14 @@ namespace goCCSI_API.Models
 
     }
 
+    public class modNewsRelationAllCatalogsParams
+    {
 
+        
+        public int IdNews { get; set; }
+
+
+    }
 
     public class modAddNewsRelationParams
     {
