@@ -33,4 +33,20 @@ namespace goCCSI_API.Models
         public bool Active { get; set; }
 
     }
+
+
+
+
+
+    public class modCatalogOptionsManyCatalogsParams
+    {
+        public int Option { get; set; }
+        public string idCatalogs { get; set; }
+
+    }
+
+
+
+
+
 }

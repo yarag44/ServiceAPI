@@ -45,6 +45,8 @@ namespace goCCSI_API.Models
         public string Role { get; set; }
 
 
+        public bool isChecked { get; set; }
+
     }
 
 

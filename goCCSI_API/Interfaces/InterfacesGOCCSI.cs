@@ -52,6 +52,10 @@ namespace goCCSI_API.Interfaces
 
         List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews);
 
+
+        List<modNewsRelationCatalog> SelectNewsRelationsAllCatalogs(modNewsRelationAllCatalogsParams pNews);
+
+
         modNewsRelation AddNewsRelations(modAddNewsRelationParams pNews);
 
         bool RemoveNewsRelations(modRemoveNewsRelationParams pNews);
@@ -115,6 +119,9 @@ namespace goCCSI_API.Interfaces
         #region CATALOG_OPTIONS
 
         List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption);
+
+        List<modCatalogOptionsSelect> SelectCatalogOptionsManyCatalogs(modCatalogOptionsManyCatalogsParams pCatalogOption);
+
 
         #endregion
 

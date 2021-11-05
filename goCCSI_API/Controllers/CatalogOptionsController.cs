@@ -36,5 +36,34 @@ namespace goCCSI_API.Controllers
             }
 
         }
+
+
+        [HttpPost]
+        [Route("SelectCatalogOptionsManyCatalogs")]
+        public async Task<IActionResult> SelectCatalogOptionsManyCatalogs(modCatalogOptionsManyCatalogsParams pCatalogOption)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modCatalogOptionsSelect> cPermission = bLayer.SelectCatalogOptionsManyCatalogs(pCatalogOption);
+
+                return await Task.Run(() => Ok(cPermission));
+
+            }
+
+        }
+
+
+
+
     }
 }
