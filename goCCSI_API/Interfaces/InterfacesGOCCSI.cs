@@ -81,8 +81,9 @@ namespace goCCSI_API.Interfaces
 
         #region ROLES
 
-
+        modRolesID InsertUpdateRoles(modRolesParams cRoles);
         List<modRoles> SelectRoles(modRolesParams pRoles);
+        modRolesID DeleteRoles(modDeleteRolesParams pRoles);
 
         List<modRolesServices> SelectRolesServices(modRolesServicesParams cRoles);
         modRolesServicesID InsertDeleteRolesServices(modRolesServicesParams cRoles);

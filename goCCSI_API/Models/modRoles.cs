@@ -8,12 +8,18 @@ namespace goCCSI_API.Models
     public class modRoles
     {
 
-        public int idRole { get; set; }
+        public int IdRole { get; set; }
 
         public string Role { get; set; }
 
-        public int idPersonnalInsert { get; set; }
+        public int IdPersonnalInsert { get; set; }
 
+
+    }
+
+    public class modRolesID
+    {
+        public int IdRole { get; set; }
 
     }
 
@@ -27,7 +33,16 @@ namespace goCCSI_API.Models
 
         public string Role { get; set; }
 
+        public int IdPersonnal { get; set; }
 
+    }
+
+    public class modDeleteRolesParams
+    {
+
+        public int IdRole { get; set; }
+
+        public int IdPersonnal { get; set; }
 
     }
 

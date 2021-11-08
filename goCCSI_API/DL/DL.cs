@@ -1082,6 +1082,71 @@ namespace goCCSI_API.DL
 
         }
 
+        public modRolesID InsertUpdateRoles(modRolesParams pRoles)
+        {
+
+            modRolesID cRoles = new modRolesID();
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@IDROLE", pRoles.IdRole),
+                        new SqlParameter("@ROLE", pRoles.Role),
+                        new SqlParameter("@IDPERSONNAL", pRoles.IdPersonnal)
+
+                      };
+
+            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "rol.InsertUpdateRoles", par);
+
+            if (objID != null)
+            {
+                cRoles.IdRole = Convert.ToInt32(objID);
+
+            }
+            else
+            {
+                cRoles.IdRole = Convert.ToInt32(0);
+
+            }
+            return cRoles;
+
+
+        }
+
+        public modRolesID DeleteRoles(modDeleteRolesParams pRoles)
+        {
+
+            modRolesID cidRole = new modRolesID();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@IDROLE", pRoles.IdRole),
+                        new SqlParameter("@IDPERSONNAL", pRoles.IdPersonnal)
+
+                      };
+
+            object idRoles = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "rol.DeleteRoles", par);
+
+
+
+
+            if (idRoles != null)
+            {
+                cidRole.IdRole = Convert.ToInt32(idRoles);
+
+            }
+            else
+            {
+                cidRole.IdRole = (0);
+            }
+
+            return cidRole;
+
+
+        }
+
         public List<modRolesServices> SelectRolesServices(modRolesServicesParams cRoles)
         {
 

@@ -224,6 +224,18 @@ namespace goCCSI_API.BL
 
         }
 
+        public modRolesID InsertUpdateRoles(modRolesParams pRoles)
+        {
+            return dLayer.InsertUpdateRoles(pRoles);
+        }
+
+        public modRolesID DeleteRoles(modDeleteRolesParams pRoles)
+        {
+
+            return dLayer.DeleteRoles(pRoles);
+
+        }
+
         public List<modRolesServices> SelectRolesServices(modRolesServicesParams pRoles)
         {
             return dLayer.SelectRolesServices(pRoles);
