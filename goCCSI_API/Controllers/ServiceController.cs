@@ -159,9 +159,9 @@ namespace goCCSI_API.Controllers
 
                 BL.BL bLayer = new BL.BL();
 
-                modServicesID cNews = bLayer.DeleteServices(pServices);
+                modServicesID cService = bLayer.DeleteServices(pServices);
 
-                return await Task.Run(() => Ok(cNews));
+                return await Task.Run(() => Ok(cService));
 
             }
 

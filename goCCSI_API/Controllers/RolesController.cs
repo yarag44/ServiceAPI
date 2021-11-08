@@ -56,6 +56,111 @@ namespace goCCSI_API.Controllers
 
         }
 
+        [HttpPost]
+        [Route("InsertUpdateRoles")]
+        public async Task<IActionResult> InsertUpdateRoles(modRolesParams pRoles)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modRolesID RolesID = bLayer.InsertUpdateRoles(pRoles);
+
+                return await Task.Run(() => Ok(RolesID));
+
+            }
+
+
+        }
+
+
+
+        [HttpPost]
+        [Route("DeleteRoles")]
+        public async Task<IActionResult> DeleteRoles(modDeleteRolesParams pRoles)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modRolesID cRoles = bLayer.DeleteRoles(pRoles);
+
+                return await Task.Run(() => Ok(cRoles));
+
+            }
+
+
+        }
+
+
+
+
+        [HttpPost]
+        [Route("SelectRolesServices")]
+        public async Task<IActionResult> SelectRolesServices(modRolesServicesParams pRoles)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modRolesServices> lstRolesServices = bLayer.SelectRolesServices(pRoles);
+
+                return await Task.Run(() => Ok(lstRolesServices));
+
+            }
+
+
+        }
+
+        [HttpPost]
+        [Route("InsertDeleteRolesServices")]
+        public async Task<IActionResult> InsertDeleteRolesServices(modRolesServicesParams pRoles)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modRolesServicesID RolesServicesID = bLayer.InsertDeleteRolesServices(pRoles);
+
+                return await Task.Run(() => Ok(RolesServicesID));
+
+            }
+
+
+        }
+
 
 
 
