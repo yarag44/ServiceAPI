@@ -103,6 +103,8 @@ namespace goCCSI_API.Models
 
         public bool IsPendingPublish { get; set; }
 
+        public string ExpirationDate { get; set; }
+
     }
 
 

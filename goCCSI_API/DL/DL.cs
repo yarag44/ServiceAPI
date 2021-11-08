@@ -210,7 +210,8 @@ namespace goCCSI_API.DL
                         new SqlParameter("@idStatus", pNews.idStatus),
                         new SqlParameter("@idViewDeptos", pNews.idViewDeptos),
                         new SqlParameter("@idViewPositions", pNews.idViewPositions),
-                        new SqlParameter("@isPendingPublish", pNews.IsPendingPublish)
+                        new SqlParameter("@isPendingPublish", pNews.IsPendingPublish),
+                        new SqlParameter("@ExpirationDate", pNews.ExpirationDate),
 
                       };
 
