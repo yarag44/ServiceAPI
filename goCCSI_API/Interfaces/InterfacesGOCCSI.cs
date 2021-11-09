@@ -117,7 +117,7 @@ namespace goCCSI_API.Interfaces
 
 
 
-        #region PERMISSIOONS
+        #region PERMISSIONS
 
 
         modPermission InsertUpdatePermissions(modPermissionParams pPermission);
@@ -125,6 +125,13 @@ namespace goCCSI_API.Interfaces
         List<modPermissionSelect> SelectPermissions(modPermissionSelectParams pPermission);
 
         List<modSelectPermissionByIdPersonnalResult> SelectPermissionsByIdPersonnal(modSelectPermissionByIdPersonnalParams cData);
+
+
+        //CatalogPermissions
+        List<modPermissionsCatalogSelect> SelectPermissionsCatalog(modPermissionsCatalogSelect pPermissionCatalog);
+
+        //Permissions Detail
+        modPermissionDetailID InsertDeletePermissionsDetail(modPermissionDetailParams pPermissionDetail);
 
         #endregion
 

@@ -552,6 +552,81 @@ namespace goCCSI_API.DL
         }
 
 
+        public List<modPermissionsCatalogSelect> SelectPermissionsCatalog(modPermissionsCatalogSelect pPermissionCatalog)
+        {
+            List<modPermissionsCatalogSelect> lstPermissionCatalog = new List<modPermissionsCatalogSelect>();
+            BLFunction bFunc = new BLFunction();
+
+            /*
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@IDCATALOG", pCatalogOption.idCatalog)
+
+            };*/
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectPermissionsCatalog").Tables[0];
+
+            lstPermissionCatalog = bFunc.ConvertDataTable<modPermissionsCatalogSelect>(dt);
+
+            return lstPermissionCatalog;
+
+        }
+
+
+        public List<modPermissionsDetail> SelectPermissionsDetail(modPermissionDetailParams pPermissionsDetail)
+        {
+            List<modPermissionsDetail> lstPermissionDetail = new List<modPermissionsDetail>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+                new SqlParameter("@OPTION", pPermissionsDetail.Option),
+                new SqlParameter("@IDPERMISSION", pPermissionsDetail.idPermission),
+                new SqlParameter("@IDPERMISSIONCATALOG", pPermissionsDetail.idPermissionCatalog)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectPermissionsDetail", par).Tables[0];
+
+            lstPermissionDetail = bFunc.ConvertDataTable<modPermissionsDetail>(dt);
+
+            return lstPermissionDetail;
+
+        }
+
+
+        public modPermissionDetailID InsertDeletePermissionsDetail(modPermissionDetailParams cPerCat)
+        {
+
+            modPermissionDetailID cPermissionDetail = new modPermissionDetailID();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@OPTION", cPerCat.Option),
+                        new SqlParameter("@IDPERMISSION", cPerCat.idPermission),
+                        new SqlParameter("@IDPERMISSIONCATALOG", cPerCat.idPermissionCatalog)
+
+                      };
+
+            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.InsertDeletePermissionsDetail", par);
+
+            if (objID != null)
+            {
+                cPermissionDetail.idPermissionDetail = Convert.ToInt32(objID);
+                //bFunc.CopierProperty(pPermission, cPermission);
+            }
+            else
+            {
+                cPermissionDetail.idPermissionDetail = Convert.ToInt32(0);
+                //bFunc.CopierProperty(pPermission, cPermission);
+            }
+            return cPermissionDetail;
+
+
+        }
 
 
         public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
