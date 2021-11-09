@@ -95,7 +95,54 @@ namespace goCCSI_API.Controllers
 
 
 
+        [HttpPost]
+        [Route("SelectServicesByIdPersonnal")]
+        public async Task<IActionResult> SelectServicesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
 
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modSelectServicesByIdPersonnalResult> lstServices = bLayer.SelectServicesByIdPersonnal(cData);
+
+                return await Task.Run(() => Ok(lstServices));
+
+            }
+
+        }
+
+
+        [HttpPost]
+        [Route("SelectRolesByIdPersonnal")]
+        public async Task<IActionResult> SelectRolesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modSelectRolesByIdPersonnalResult> lstRoles = bLayer.SelectRolesByIdPersonnal(cData);
+
+                return await Task.Run(() => Ok(lstRoles));
+
+            }
+
+        }
 
 
 

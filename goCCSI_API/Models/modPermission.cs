@@ -99,6 +99,25 @@ namespace goCCSI_API.Models
     }
 
 
+    public class modSelectServicesByIdPersonnalResult
+    {
+        public int idService { get; set; }
+
+        public string service { get; set; }
+
+    }
+
+
+    public class modSelectRolesByIdPersonnalResult
+    {
+        public int idRole { get; set; }
+
+        public string Role { get; set; }
+
+    }
+
+
+
 
 
 

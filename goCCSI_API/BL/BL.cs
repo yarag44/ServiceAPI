@@ -273,6 +273,24 @@ namespace goCCSI_API.BL
         }
 
 
+        public List<modSelectServicesByIdPersonnalResult> SelectServicesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
+            return dLayer.SelectServicesByIdPersonnal(cData);
+
+        }
+
+        public List<modSelectRolesByIdPersonnalResult> SelectRolesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
+
+            return dLayer.SelectRolesByIdPersonnal(cData);
+        }
+
+
+        public modidNews NegateAuthorizationNews(NegateAuthorizationParams cNew)
+        {
+            return dLayer.NegateAuthorizationNews(cNew);
+        }
+
 
 
         }

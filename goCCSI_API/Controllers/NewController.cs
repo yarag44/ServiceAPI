@@ -130,6 +130,42 @@ namespace goCCSI_API.Controllers
 
 
 
+        [HttpPost]
+        [Route("NegateAuthorizationNews")]
+        public async Task<IActionResult> NegateAuthorizationNews(NegateAuthorizationParams pNew)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modidNews cNews = bLayer.NegateAuthorizationNews(pNew);
+
+                return await Task.Run(() => Ok(cNews));
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
 
 
 

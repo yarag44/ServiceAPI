@@ -277,4 +277,19 @@ namespace goCCSI_API.Models
 
     }
 
+
+
+    public class NegateAuthorizationParams
+    {
+
+        public int idNews { get; set; }
+
+        public bool isPendingPublish { get; set; }
+
+
+
+    }
+
+
+
 }

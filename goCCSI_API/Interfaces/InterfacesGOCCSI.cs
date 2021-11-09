@@ -79,6 +79,9 @@ namespace goCCSI_API.Interfaces
 
         VersionsNews Select_VersionNews(modOperViewsNewsParams pNews);
 
+        modidNews NegateAuthorizationNews(NegateAuthorizationParams cNew);
+
+
 
         #endregion
 
@@ -125,6 +128,10 @@ namespace goCCSI_API.Interfaces
         List<modPermissionSelect> SelectPermissions(modPermissionSelectParams pPermission);
 
         List<modSelectPermissionByIdPersonnalResult> SelectPermissionsByIdPersonnal(modSelectPermissionByIdPersonnalParams cData);
+
+        List<modSelectServicesByIdPersonnalResult> SelectServicesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData);
+
+        List<modSelectRolesByIdPersonnalResult> SelectRolesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData);
 
         #endregion
 

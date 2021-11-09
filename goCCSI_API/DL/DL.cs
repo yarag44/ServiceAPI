@@ -1322,5 +1322,93 @@ namespace goCCSI_API.DL
 
 
 
+        public List<modSelectServicesByIdPersonnalResult> SelectServicesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
+
+            List<modSelectServicesByIdPersonnalResult> lstSelectServicesByIdPersonnal = new List<modSelectServicesByIdPersonnalResult>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cData.Option),
+                new SqlParameter("@IDPERSONNAL", cData.IdPersonnal)
+
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectServicesByIdPersonnal", par).Tables[0];
+
+            lstSelectServicesByIdPersonnal = bFunc.ConvertDataTable<modSelectServicesByIdPersonnalResult>(dt);
+
+            return lstSelectServicesByIdPersonnal;
+
+
+        }
+
+
+
+        public List<modSelectRolesByIdPersonnalResult> SelectRolesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
+
+            List<modSelectRolesByIdPersonnalResult> lstSelectRolesByIdPersonnal = new List<modSelectRolesByIdPersonnalResult>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cData.Option),
+                new SqlParameter("@IDPERSONNAL", cData.IdPersonnal)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectRolesByIdPersonnal", par).Tables[0];
+
+            lstSelectRolesByIdPersonnal = bFunc.ConvertDataTable<modSelectRolesByIdPersonnalResult>(dt);
+
+            return lstSelectRolesByIdPersonnal;
+
+
+        }
+
+
+
+        public modidNews NegateAuthorizationNews(NegateAuthorizationParams cNew)
+        {
+
+           
+            modidNews cid = new modidNews();
+
+            
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@idnews", cNew.idNews),
+                new SqlParameter("@pendingtopublish", cNew.isPendingPublish)
+
+            };
+
+            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "nws.NegateAuthorizationNews", par);
+
+            if (objID != null)
+            {
+                cid.idNews = Convert.ToInt32(objID);
+
+            }
+            else
+            {
+                cid.idNews = Convert.ToInt32(0);
+
+            }
+
+            return cid;
+
+
+        }
+
+
+
+
+
     }
 }
