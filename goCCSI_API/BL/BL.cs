@@ -46,6 +46,12 @@ namespace goCCSI_API.BL
 
         }
 
+        public modPersonnalPasswordID UpdatePersonnalPassword(modPersonnalPasswordParams cPer)
+        {
+            return dLayer.UpdatePersonnalPassword(cPer);
+        }
+
+
         public modNews InsertUpdateNew(modNewsParamsInsertUpdate pNews)
         {
 

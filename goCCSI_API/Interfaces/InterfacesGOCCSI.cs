@@ -10,6 +10,7 @@ namespace goCCSI_API.Interfaces
     {
 
         List<modPersonnal> SelectPersonnal(modLogin plogin);
+        modPersonnalPasswordID UpdatePersonnalPassword(modPersonnalPasswordParams cPer);
         List<modPersonalServices> SelectPersonnalServices(modPersonalServicesParams cPer);
 
 

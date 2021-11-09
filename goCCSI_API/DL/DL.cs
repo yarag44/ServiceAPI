@@ -45,6 +45,35 @@ namespace goCCSI_API.DL
             return lstPersonnal;
 
         }
+        public modPersonnalPasswordID UpdatePersonnalPassword(modPersonnalPasswordParams pPer)
+        {
+
+            modPersonnalPasswordID cPersonnalPassword = new modPersonnalPasswordID();
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@IDPERSONNAL", pPer.IdPersonnal),
+                        new SqlParameter("@PASSWORD", pPer.Password)
+
+                      };
+
+            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.UpdatePersonnalPassword", par);
+
+            if (objID != null)
+            {
+                cPersonnalPassword.IdPersonnal = Convert.ToInt32(objID);
+
+            }
+            else
+            {
+                cPersonnalPassword.IdPersonnal = Convert.ToInt32(0);
+
+            }
+            return cPersonnalPassword;
+
+
+        }
 
         //Select_CatPersonnalFilters
         public List<modPersonnal> Select_CatPersonnalFilters(modPersonnalFiltersParams pPer)
