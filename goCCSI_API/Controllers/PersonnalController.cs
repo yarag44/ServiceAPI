@@ -32,6 +32,30 @@ namespace goCCSI_API.Controllers
 
         }
 
+        [HttpPost]
+        [Route("UpdatePersonnalPassword")]
+        public async Task<IActionResult> UpdatePersonnalPassword(modPersonnalPasswordParams pPer)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modPersonnalPasswordID cPerID = bLayer.UpdatePersonnalPassword(pPer);
+
+                return await Task.Run(() => Ok(cPerID));
+
+            }
+
+        }
+
 
         [HttpPost]
         [Route("SelectPersonnalServices")]
@@ -58,6 +82,7 @@ namespace goCCSI_API.Controllers
 
         }
 
+
         [HttpPost]
         [Route("InsertDeletePersonnalServices")]
         public async Task<IActionResult> InsertDeletePersonnalServices(modPersonalServicesParams pPer)
@@ -81,16 +106,7 @@ namespace goCCSI_API.Controllers
             }
 
 
-
-
-
-
-
         }
-
-
-
-
 
 
 
@@ -144,21 +160,16 @@ namespace goCCSI_API.Controllers
 
             }
 
-
-
-
-
-
-
         }
+
+
+
+
 
         [HttpPost]
         [Route("SelectPersonnalRoles")]
         public async Task<IActionResult> SelectPersonnalRoles(modPersonnalRolesParams pPer)
         {
-
-            
-            
             
             if (!ModelState.IsValid)
             {
@@ -176,10 +187,6 @@ namespace goCCSI_API.Controllers
                 return await Task.Run(() => Ok(lstPerRoles));
 
             }
-
-
-
-
 
         }
 

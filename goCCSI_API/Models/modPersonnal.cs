@@ -62,18 +62,14 @@ namespace goCCSI_API.Models
         public int idService { get; set; }
 
 
-
     }
 
     public class modPersonalServices
     {
 
-        
         public int idPersonnal { get; set; }
 
         public int idService { get; set; }
-
-
 
     }
 
@@ -82,8 +78,6 @@ namespace goCCSI_API.Models
     {
 
         public int idPersonnalService { get; set; }
-
-
 
     }
 
@@ -104,15 +98,7 @@ namespace goCCSI_API.Models
         public int IdPersonnalType { get; set; }
 
 
-
-
     }
-
-
-
-
-
-
 
 
 
@@ -144,6 +130,22 @@ namespace goCCSI_API.Models
 
         public int idPersonnalRole { get; set; }
         
+    }
+
+    public class modPersonnalPasswordParams
+    {
+
+        public int IdPersonnal { get; set; }
+
+        public string Password { get; set; }
+
+    }
+
+    public class modPersonnalPasswordID
+    {
+
+        public int IdPersonnal { get; set; }
+
     }
 
 
