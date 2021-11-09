@@ -88,6 +88,25 @@ namespace goCCSI_API.BL
         }
 
 
+        public List<modPermissionsCatalogSelect> SelectPermissionsCatalog(modPermissionsCatalogSelect pPermissionCatalog)
+        {
+            return dLayer.SelectPermissionsCatalog(pPermissionCatalog);
+
+        }
+
+        public List<modPermissionsDetail> SelectPermissionsDetail(modPermissionDetailParams pPermissionDetail)
+        {
+            return dLayer.SelectPermissionsDetail(pPermissionDetail);
+
+        }
+
+        public modPermissionDetailID InsertDeletePermissionsDetail(modPermissionDetailParams pPermissionDetail)
+        {
+            return dLayer.InsertDeletePermissionsDetail(pPermissionDetail);
+        }
+
+
+
         public List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews)
         {
             return dLayer.SelectNewsRelations(pNews);
