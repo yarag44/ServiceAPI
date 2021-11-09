@@ -46,6 +46,56 @@ namespace goCCSI_API.Controllers
 
         }
 
+        [HttpPost]
+        [Route("SelectNewsWithFilters")]
+
+        public async Task<IActionResult> SelectNewsWithFilters(modNewsSelectWithFilterParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                List<modNews> lstNews = bLayer.SelectNewsWithFilters(pNews);
+                return await Task.Run(() => Ok(lstNews));
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+        [HttpPost]
+        [Route("SelectFiltersNews")]
+
+        public async Task<IActionResult> SelectFiltersNews(modNewsSelectFilterParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                List<modNewsSelectFilterResult> lstPersonnal = bLayer.SelectFiltersNews(pNews);
+                return await Task.Run(() => Ok(lstPersonnal));
+
+            }
+
+
+        }
+
+
+
 
 
         [HttpPost]

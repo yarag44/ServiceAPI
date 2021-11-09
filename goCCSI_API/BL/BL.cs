@@ -247,12 +247,33 @@ namespace goCCSI_API.BL
         }
 
 
+        public List<modNewsSelectFilterResult> SelectFiltersNews(modNewsSelectFilterParams pNews)
+        {
 
-    }
+            return dLayer.SelectFiltersNews(pNews);
+
+        }
+
+        public List<modNews> SelectNewsWithFilters(modNewsSelectWithFilterParams pNews)
+        {
+            return dLayer.SelectNewsWithFilters(pNews);
+        }
+
+
+        public List<modSelectPermissionByIdPersonnalResult> SelectPermissionsByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
+            return dLayer.SelectPermissionsByIdPersonnal(cData);
+
+        }
 
 
 
-    public class BLFunction
+
+        }
+
+
+
+        public class BLFunction
     {
 
         public List<T> ConvertDataTable<T>(DataTable dt)

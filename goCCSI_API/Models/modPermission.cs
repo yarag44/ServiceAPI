@@ -77,4 +77,31 @@ namespace goCCSI_API.Models
 
     }
 
+
+    public class modSelectPermissionByIdPersonnalParams
+    {
+        public int Option { get; set; }
+
+        public int IdPersonnal { get; set; }
+
+
+
+    }
+
+
+    public class modSelectPermissionByIdPersonnalResult
+    {
+        public int idPermission { get; set; }
+
+        public string Permission { get; set; }
+
+
+    }
+
+
+
+
+
+
+
 }

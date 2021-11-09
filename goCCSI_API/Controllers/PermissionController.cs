@@ -70,6 +70,39 @@ namespace goCCSI_API.Controllers
         }
 
         [HttpPost]
+        [Route("SelectPermissionsByIdPersonnal")]
+        public async Task<IActionResult> SelectPermissionsByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modSelectPermissionByIdPersonnalResult> lstPermissions = bLayer.SelectPermissionsByIdPersonnal(cData);
+
+                return await Task.Run(() => Ok(lstPermissions));
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+        [HttpPost]
         [Route("DeletePermission")]
         public async Task<IActionResult> DeletePermission(modDeletePermissionParams pPermission)
         {

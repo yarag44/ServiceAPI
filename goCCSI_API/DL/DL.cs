@@ -74,6 +74,12 @@ namespace goCCSI_API.DL
 
 
 
+
+
+
+
+
+
         public int InsertClockDateTime(modClockDateTime pClock)
         {
 
@@ -148,6 +154,59 @@ namespace goCCSI_API.DL
             return lstNews;
 
         }
+
+
+
+        public List<modNewsSelectFilterResult> SelectFiltersNews(modNewsSelectFilterParams pNews)
+        {
+            List<modNewsSelectFilterResult> lstPersonnal = new List<modNewsSelectFilterResult>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+                
+                new SqlParameter("@Option", pNews.Option),
+                new SqlParameter("@IdWritter", pNews.idWritter)
+                
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "nws.SelectFiltersNews", par).Tables[0];
+
+            lstPersonnal = bFunc.ConvertDataTable<modNewsSelectFilterResult>(dt);
+
+            return lstPersonnal;
+
+        }
+
+
+
+        public List<modNews> SelectNewsWithFilters(modNewsSelectWithFilterParams pNews)
+        {
+            List<modNews> lstNews = new List<modNews>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+                new SqlParameter("@OPTION", pNews.Option),
+                new SqlParameter("@IdWritter", pNews.idWritter),
+                new SqlParameter("@Top", pNews.Top)
+
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "nws.SelectNewsWithFilters", par).Tables[0];
+
+            lstNews = bFunc.ConvertDataTable<modNews>(dt);
+
+            return lstNews;
+
+        }
+
+
+
+
+
+
 
 
         public modNews InsertNew(modNewsParamsInsert pNews)
@@ -1203,6 +1262,35 @@ namespace goCCSI_API.DL
 
 
         }
+
+
+
+
+
+        public List<modSelectPermissionByIdPersonnalResult> SelectPermissionsByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
+        {
+
+            List<modSelectPermissionByIdPersonnalResult> lstSelectPermissionsByIdPersonnal = new List<modSelectPermissionByIdPersonnalResult>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cData.Option),
+                new SqlParameter("@IDPERSONNAL", cData.IdPersonnal)
+                
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectPermissionsByIdPersonnal", par).Tables[0];
+
+            lstSelectPermissionsByIdPersonnal = bFunc.ConvertDataTable<modSelectPermissionByIdPersonnalResult>(dt);
+
+            return lstSelectPermissionsByIdPersonnal;
+
+
+        }
+
 
 
     }

@@ -47,6 +47,7 @@ namespace goCCSI_API.Models
 
         public bool IsPendingPublish { get; set; }
 
+        public DateTime ExpirationDate { get; set; }
 
 
     }
@@ -70,6 +71,47 @@ namespace goCCSI_API.Models
 
 
     }
+
+    public class modNewsSelectFilterParams
+    {
+
+        public int Option { get; set; }
+
+        public int idWritter { get; set; }
+
+
+    }
+
+    public class modNewsSelectWithFilterParams
+    {
+
+        public int Option { get; set; }
+
+        public int idWritter { get; set; }
+
+        public int Top { get; set; }
+
+    }
+
+
+
+
+
+    public class modNewsSelectFilterResult
+    {
+
+        public int idPersonnal { get; set; }
+
+        public string Name { get; set; }
+
+
+    }
+
+
+
+
+
+
 
     public class modNewsParamsInsertUpdate
     {

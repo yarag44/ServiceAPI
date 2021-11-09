@@ -43,6 +43,10 @@ namespace goCCSI_API.Interfaces
 
         List<modNews> SelectNews(modNewsParams pNews);
 
+        List<modNewsSelectFilterResult> SelectFiltersNews(modNewsSelectFilterParams pNews);
+
+        List<modNews> SelectNewsWithFilters(modNewsSelectWithFilterParams pNews);
+
         modNews InsertNew(modNewsParamsInsert pNews);
 
         modNews InsertUpdateNew(modNewsParamsInsertUpdate pNews);
@@ -118,6 +122,8 @@ namespace goCCSI_API.Interfaces
         modPermission InsertUpdatePermissions(modPermissionParams pPermission);
 
         List<modPermissionSelect> SelectPermissions(modPermissionSelectParams pPermission);
+
+        List<modSelectPermissionByIdPersonnalResult> SelectPermissionsByIdPersonnal(modSelectPermissionByIdPersonnalParams cData);
 
         #endregion
 
