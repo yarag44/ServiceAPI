@@ -50,6 +50,9 @@ namespace goCCSI_API.Models
         public DateTime ExpirationDate { get; set; }
 
 
+        public bool  IsReject { get; set; }
+
+
     }
 
     public class modidNews
@@ -57,6 +60,26 @@ namespace goCCSI_API.Models
         public int idNews { get; set; }
 
     }
+
+
+
+    public class modQtyPinToTop
+    {
+        public int QTY { get; set; }
+
+    }
+
+
+    public class modQtyPinToTopParams
+    {
+        public int Option { get; set; }
+
+        public int idDepartment { get; set; }
+
+    }
+
+
+
 
 
 

@@ -311,6 +311,13 @@ namespace goCCSI_API.BL
         }
 
 
+        public modQtyPinToTop Select_PinToTopQTY(modQtyPinToTopParams cNew)
+        {
+            return dLayer.Select_PinToTopQTY(cNew);
+        }
+
+
+
 
         }
 

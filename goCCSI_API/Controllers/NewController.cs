@@ -418,6 +418,28 @@ namespace goCCSI_API.Controllers
 
 
 
+        [HttpPost]
+        [Route("Select_PinToTopQTY")]
+        public async Task<IActionResult> Select_PinToTopQTY(modQtyPinToTopParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+                modQtyPinToTop itm = bLayer.Select_PinToTopQTY(pNews);
+                return await Task.Run(() => Ok(itm));
+
+            }
+
+        }
+
+
+
 
 
 
