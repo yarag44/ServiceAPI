@@ -95,6 +95,10 @@ namespace goCCSI_API.Models
 
         public string Permission { get; set; }
 
+        public int idPermissionCatalog { get; set; }
+
+        public string permissionType { get; set; }
+
 
     }
 
