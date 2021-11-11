@@ -81,6 +81,9 @@ namespace goCCSI_API.Interfaces
 
         modidNews NegateAuthorizationNews(NegateAuthorizationParams cNew);
 
+        modQtyPinToTop Select_PinToTopQTY(modQtyPinToTopParams cNew);
+
+
 
 
         #endregion

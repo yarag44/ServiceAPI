@@ -1486,6 +1486,39 @@ namespace goCCSI_API.DL
 
 
 
+        public modQtyPinToTop Select_PinToTopQTY(modQtyPinToTopParams cNew)
+        {
+
+            modQtyPinToTop cQty = new modQtyPinToTop();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@Option", cNew.Option),
+                new SqlParameter("@idDepartment", cNew.idDepartment)
+
+            };
+
+            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "nws.Select_PinToTopQTY", par);
+
+            if (objID != null)
+            {
+                cQty.QTY = Convert.ToInt32(objID);
+
+            }
+            else
+            {
+                cQty.QTY = Convert.ToInt32(0);
+
+            }
+
+            return cQty;
+
+        }
+
+
+
+
 
     }
 }
