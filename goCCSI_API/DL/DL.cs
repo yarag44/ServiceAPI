@@ -636,8 +636,9 @@ namespace goCCSI_API.DL
 
             SqlParameter[] par = new SqlParameter[]
             {
-
-                new SqlParameter("@IDCATALOG", pCatalogOption.idCatalog)
+                new SqlParameter("@option", pCatalogOption.Option),
+                new SqlParameter("@IDCATALOG", pCatalogOption.idCatalog),
+                new SqlParameter("@idCatalogOptions", pCatalogOption.idCatalogOptions)
 
             };
 
@@ -1493,7 +1494,8 @@ namespace goCCSI_API.DL
             {
 
                 new SqlParameter("@Option", cNew.Option),
-                new SqlParameter("@idDepartment", cNew.idDepartment)
+                new SqlParameter("@idDepartment", cNew.idDepartment),
+                new SqlParameter("@idNews", cNew.idNews)
 
             };
 

@@ -76,6 +76,9 @@ namespace goCCSI_API.Models
 
         public int idDepartment { get; set; }
 
+
+        public int idNews { get; set; }
+
     }
 
 

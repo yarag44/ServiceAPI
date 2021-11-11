@@ -21,7 +21,11 @@ namespace goCCSI_API.Models
 
     public class modCatalogOptionsSelectParams
     {
+        public int Option { get; set; }
         public int idCatalog { get; set; }
+
+        public int idCatalogOptions { get; set; }
+
 
     }
 
