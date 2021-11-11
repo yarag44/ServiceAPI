@@ -23,6 +23,7 @@ namespace goCCSI_API.Models
     {
         public int Option { get; set; }
         public int idCatalog { get; set; }
+        public int idCatalogOptions { get; set; }
 
         public int idCatalogOptions { get; set; }
 
