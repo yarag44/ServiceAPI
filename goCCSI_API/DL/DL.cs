@@ -52,7 +52,7 @@ namespace goCCSI_API.DL
 
             SqlParameter[] par = new SqlParameter[]
                       {
-
+                        new SqlParameter("@OPTION", pPer.Option),
                         new SqlParameter("@IDPERSONNAL", pPer.IdPersonnal),
                         new SqlParameter("@PASSWORD", pPer.Password)
 

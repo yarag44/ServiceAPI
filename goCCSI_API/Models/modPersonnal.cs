@@ -134,6 +134,7 @@ namespace goCCSI_API.Models
 
     public class modPersonnalPasswordParams
     {
+        public int Option { get; set; }
 
         public int IdPersonnal { get; set; }
 
