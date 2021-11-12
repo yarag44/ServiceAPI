@@ -317,6 +317,13 @@ namespace goCCSI_API.BL
         }
 
 
+        public modNewImage Select_ImageFromIdNews(modidNews pNews)
+        {
+            return dLayer.Select_ImageFromIdNews(pNews);
+
+        }
+
+
 
 
         }

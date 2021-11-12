@@ -84,7 +84,7 @@ namespace goCCSI_API.Interfaces
         modQtyPinToTop Select_PinToTopQTY(modQtyPinToTopParams cNew);
 
 
-
+        modNewImage Select_ImageFromIdNews(modidNews pNews);
 
         #endregion
 

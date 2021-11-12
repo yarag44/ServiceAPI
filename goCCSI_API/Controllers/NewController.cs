@@ -444,5 +444,43 @@ namespace goCCSI_API.Controllers
 
 
 
+        [HttpPost]
+        [Route("Select_ImageFromIdNews")]
+        public async Task<IActionResult> Select_ImageFromIdNews(modidNews pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modNewImage cNews = bLayer.Select_ImageFromIdNews(pNews);
+
+                return await Task.Run(() => Ok(cNews));
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
     }
 }

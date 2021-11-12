@@ -52,6 +52,7 @@ namespace goCCSI_API.Models
 
         public bool  IsReject { get; set; }
 
+        public bool IsPublished { get; set; }
 
     }
 
@@ -316,6 +317,15 @@ namespace goCCSI_API.Models
 
     }
 
+
+
+    public class modNewImage
+    {
+
+        public string ImageNew { get; set; }
+
+
+    }
 
 
 }

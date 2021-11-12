@@ -237,6 +237,46 @@ namespace goCCSI_API.DL
 
 
 
+        public modNewImage Select_ImageFromIdNews(modidNews pNews)
+        {
+            modNewImage imageNew = new modNewImage();
+            BLFunction bFunc = new BLFunction();
+                      
+            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.Text, "select nws.Select_ImageFromIdNews(" + Convert.ToString(pNews.idNews) + ")");
+
+            if(objID != null)
+            {
+                imageNew.ImageNew = Convert.ToString(objID);
+            }
+            else
+            {
+                imageNew.ImageNew = "";
+            }
+
+
+            //lstNews = bFunc.ConvertDataTable<modNews>(dt);
+
+            return imageNew;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public modNews InsertNew(modNewsParamsInsert pNews)
         {
