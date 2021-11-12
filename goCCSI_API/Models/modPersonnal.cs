@@ -47,6 +47,8 @@ namespace goCCSI_API.Models
 
         public bool isChecked { get; set; }
 
+        public DateTime LastModifyDate { get; set; }
+
     }
 
 
