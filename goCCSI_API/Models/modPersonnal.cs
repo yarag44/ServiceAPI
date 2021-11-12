@@ -47,6 +47,8 @@ namespace goCCSI_API.Models
 
         public bool isChecked { get; set; }
 
+        public DateTime LastModifyDate { get; set; }
+
     }
 
 
@@ -134,6 +136,7 @@ namespace goCCSI_API.Models
 
     public class modPersonnalPasswordParams
     {
+        public int Option { get; set; }
 
         public int IdPersonnal { get; set; }
 
