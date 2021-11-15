@@ -10,7 +10,7 @@ namespace goCCSI_API.Models
 
         public int idPersonnal { get; set; }
 
-        //public int idPersonnal_Boss { get; set; }
+        public int idPersonnal_Boss { get; set; }
 
         public string NoEmployee { get; set; }
 
@@ -20,9 +20,12 @@ namespace goCCSI_API.Models
 
         public string Name { get; set; }
 
-        //public string LastName { get; set; }
+        public string LastName { get; set; }
 
-        //public string MotherLastName { get; set; }
+        public string MotherLastName { get; set; }
+
+        public string CompleteName { get; set; }
+
         public string Supervisor { get; set; }
 
         public int idDepartment { get; set; }
@@ -41,13 +44,20 @@ namespace goCCSI_API.Models
 
         public string Password { get; set; }
 
-
         public string Role { get; set; }
-
 
         public bool isChecked { get; set; }
 
         public DateTime LastModifyDate { get; set; }
+
+        public int idDivision { get; set; }
+
+        public string Division { get; set; }
+
+        public int idArea { get; set; }
+
+        public string Area { get; set; }
+
 
     }
 

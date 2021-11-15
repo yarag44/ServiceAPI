@@ -133,7 +133,7 @@ namespace goCCSI_API.DL
         }
 
 
-        public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTime pClock)
+        public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTimeParams pClock)
         {
             List<modSelectClockDateTime> lstClock = new List<modSelectClockDateTime>();
             BLFunction bFunc = new BLFunction();
@@ -142,13 +142,14 @@ namespace goCCSI_API.DL
             {
                 new SqlParameter("@OPTION", pClock.Option),
                 new SqlParameter("@IDPERSONNAL", pClock.idPersonnal),
-                new SqlParameter("@IDSTATUS", pClock.idStatus),
                 new SqlParameter("@STARTDATE", pClock.startDate),
                 new SqlParameter("@ENDDATE", pClock.endDate),
                 new SqlParameter("@IDCENTER", pClock.idCenter),
-                new SqlParameter("@IDDEPARTMENT", pClock.idDepartment),
-                new SqlParameter("@SEARCH", pClock.personnalNoEmployee),
-                new SqlParameter("@IDCHECKTYPE", pClock.idStatus)
+                new SqlParameter("@IDDIVISION", pClock.idDivision),
+                new SqlParameter("@IDAREA", pClock.idArea),
+                new SqlParameter("@IDBUSSINESSMODEL", pClock.idBussinessModel),
+                new SqlParameter("@SEARCH", pClock.Search),
+                new SqlParameter("@IDCHECKTYPE", pClock.idCheckType)
 
             };
 
