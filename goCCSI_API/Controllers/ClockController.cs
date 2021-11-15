@@ -52,7 +52,7 @@ namespace goCCSI_API.Controllers
 
         [HttpPost]
         [Route("SelectClockDateTime")]
-        public async Task<IActionResult> SelectClockDateTime(modSelectClockDateTime clock)
+        public async Task<IActionResult> SelectClockDateTime(modSelectClockDateTimeParams clock)
         {
 
             if (!ModelState.IsValid)

@@ -30,7 +30,7 @@ namespace goCCSI_API.BL
             return dLayer.InsertNew(pNews);
         }
 
-        public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTime pClock)
+        public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTimeParams pClock)
         {
             return dLayer.SelectClockdateTime(pClock);
         }

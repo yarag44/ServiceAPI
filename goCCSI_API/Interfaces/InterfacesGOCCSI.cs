@@ -35,7 +35,7 @@ namespace goCCSI_API.Interfaces
 
         int InsertClockDateTime(modClockDateTime pClock);
 
-        List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTime pClock);
+        List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTimeParams pClock);
 
         #endregion
 
