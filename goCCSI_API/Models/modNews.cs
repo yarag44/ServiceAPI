@@ -54,6 +54,9 @@ namespace goCCSI_API.Models
 
         public bool IsPublished { get; set; }
 
+        public bool IsExpired { get; set; }
+
+
     }
 
     public class modidNews
