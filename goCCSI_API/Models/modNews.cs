@@ -102,6 +102,21 @@ namespace goCCSI_API.Models
 
     }
 
+
+    public class modNewsViewParams
+    {
+
+        public int Option { get; set; }
+
+        public int idNews { get; set; }
+
+        public string news { get; set; }
+
+
+    }
+
+
+
     public class modNewsSelectFilterParams
     {
 
@@ -329,6 +344,29 @@ namespace goCCSI_API.Models
 
 
     }
+
+
+    public class modNewsActivePermissions
+    {
+
+        public int RowIndex { get; set; }
+
+        public int idNews { get; set; }
+
+        public string Centers { get; set; }
+
+        public int idViewAreas { get; set; }
+
+        public string Areas { get; set; }
+
+        public int idViewPositions { get; set; }
+
+        public string Positions { get; set; }
+
+    }
+
+
+
 
 
 }

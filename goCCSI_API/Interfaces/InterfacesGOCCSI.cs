@@ -30,6 +30,9 @@ namespace goCCSI_API.Interfaces
 
         List<modPersonnal> Select_CatPersonnalFilters(modPersonnalFiltersParams pPer);
 
+        modPersonnalPhotosResult Select_PhotosPersonnalByCriteria(modPersonnalPhotosParams cPer);
+
+
 
         #region CLOCK
 
@@ -85,6 +88,12 @@ namespace goCCSI_API.Interfaces
 
 
         modNewImage Select_ImageFromIdNews(modidNews pNews);
+
+        List<modNewsActivePermissions> Select_ActiveNewsPermissions();
+
+        List<modNews> SelectNewsView(modNewsViewParams pNews);
+
+
 
         #endregion
 

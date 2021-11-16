@@ -192,6 +192,34 @@ namespace goCCSI_API.Controllers
 
 
 
+        [HttpPost]
+        [Route("Select_PhotosPersonnalByCriteria")]
+        public async Task<IActionResult> Select_PhotosPersonnalByCriteria(modPersonnalPhotosParams pPer)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modPersonnalPhotosResult cPhoto = bLayer.Select_PhotosPersonnalByCriteria(pPer);
+
+                return await Task.Run(() => Ok(cPhoto));
+
+            }
+
+        }
+
+
+
+
+
 
 
 

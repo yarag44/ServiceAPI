@@ -232,12 +232,6 @@ namespace goCCSI_API.DL
 
         }
 
-
-
-
-
-
-
         public modNewImage Select_ImageFromIdNews(modidNews pNews)
         {
             modNewImage imageNew = new modNewImage();
@@ -261,8 +255,48 @@ namespace goCCSI_API.DL
 
         }
 
+        public List<modNewsActivePermissions> Select_ActiveNewsPermissions()
+        {
+            List<modNewsActivePermissions> lstNews = new List<modNewsActivePermissions>();
+            BLFunction bFunc = new BLFunction();
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "nws.Select_ActiveNewsPermissions").Tables[0];
+
+            lstNews = bFunc.ConvertDataTable<modNewsActivePermissions>(dt);
+
+            return lstNews;
+
+        }
 
 
+
+
+
+
+
+
+
+        public List<modNews> SelectNewsView(modNewsViewParams pNews)
+        {
+            List<modNews> lstNews = new List<modNews>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+                new SqlParameter("@OPTION", pNews.Option),
+                new SqlParameter("@IDNEWS", pNews.idNews),
+                new SqlParameter("@NEWS", pNews.news)
+
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "nws.SelectNewsView", par).Tables[0];
+
+            lstNews = bFunc.ConvertDataTable<modNews>(dt);
+
+            return lstNews;
+
+        }
 
 
 
@@ -1555,6 +1589,42 @@ namespace goCCSI_API.DL
             }
 
             return cQty;
+
+        }
+
+
+
+
+
+
+        public modPersonnalPhotosResult Select_PhotosPersonnalByCriteria(modPersonnalPhotosParams cPer)
+        {
+
+            modPersonnalPhotosResult cPhoto = new modPersonnalPhotosResult();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@Option", cPer.Option),
+                new SqlParameter("@idPersonnal", cPer.IdPersonnal),
+                new SqlParameter("@Criteria", cPer.Criteria)
+
+            };
+
+            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.Select_PhotosPersonnalByCriteria", par);
+
+            if (objID != null)
+            {
+                cPhoto.Photo = Convert.ToString(objID);
+
+            }
+            else
+            {
+                cPhoto.Photo = Convert.ToString("");
+
+            }
+
+            return cPhoto;
 
         }
 

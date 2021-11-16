@@ -59,6 +59,9 @@ namespace goCCSI_API.Models
         public string Area { get; set; }
 
 
+
+
+
     }
 
 
@@ -163,4 +166,29 @@ namespace goCCSI_API.Models
 
 
 
-}
+
+    public class modPersonnalPhotosParams
+    {
+        public int Option { get; set; }
+
+        public int IdPersonnal { get; set; }
+        
+        public string Criteria { get; set; }
+
+
+
+
+
+    }
+
+
+
+    public class modPersonnalPhotosResult
+    {
+
+        public string Photo { get; set; }
+
+    }
+
+
+    }

@@ -325,6 +325,26 @@ namespace goCCSI_API.BL
 
 
 
+        public List<modNewsActivePermissions> Select_ActiveNewsPermissions()
+        {
+
+            return dLayer.Select_ActiveNewsPermissions();
+        }
+
+        public List<modNews> SelectNewsView(modNewsViewParams pNews)
+        {
+            return dLayer.SelectNewsView(pNews);
+        }
+
+
+        public modPersonnalPhotosResult Select_PhotosPersonnalByCriteria(modPersonnalPhotosParams cPer)
+        {
+
+            return dLayer.Select_PhotosPersonnalByCriteria(cPer);
+        }
+
+
+
 
         }
 

@@ -46,6 +46,33 @@ namespace goCCSI_API.Controllers
 
         }
 
+
+        [HttpPost]
+        [Route("SelectNewsView")]
+
+        public async Task<IActionResult> SelectNewsView(modNewsViewParams pNews)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Error 404");
+            }
+            else
+            {
+                BL.BL bLayer = new BL.BL();
+                List<modNews> lstNews = bLayer.SelectNewsView(pNews);
+                return await Task.Run(() => Ok(lstNews));
+
+            }
+
+
+        }
+
+
+
+
+
+
         [HttpPost]
         [Route("SelectNewsWithFilters")]
 
@@ -473,6 +500,42 @@ namespace goCCSI_API.Controllers
 
 
         }
+
+
+
+        [HttpPost]
+        [Route("Select_ActiveNewsPermissions")]
+        public async Task<IActionResult> Select_ActiveNewsPermissions()
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modNewsActivePermissions> cNews = bLayer.Select_ActiveNewsPermissions();
+
+                return await Task.Run(() => Ok(cNews));
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
 
 
 
