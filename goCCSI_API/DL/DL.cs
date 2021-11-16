@@ -145,8 +145,8 @@ namespace goCCSI_API.DL
                 new SqlParameter("@STARTDATE", pClock.startDate),
                 new SqlParameter("@ENDDATE", pClock.endDate),
                 new SqlParameter("@IDCENTER", pClock.idCenter),
-                new SqlParameter("@IDDIVISION", pClock.idDivision),
-                new SqlParameter("@IDAREA", pClock.idArea),
+                new SqlParameter("@IDDIVISIONS", pClock.idDivisions),
+                new SqlParameter("@IDAREAS", pClock.idAreas),
                 new SqlParameter("@IDBUSSINESSMODEL", pClock.idBussinessModel),
                 new SqlParameter("@SEARCH", pClock.Search),
                 new SqlParameter("@IDCHECKTYPE", pClock.idCheckType)
@@ -547,8 +547,11 @@ namespace goCCSI_API.DL
 
                         new SqlParameter("@idPermission", pPermission.idPermission),
                         new SqlParameter("@Permission", pPermission.Permission),
+                        new SqlParameter("@Route", pPermission.Route),
+                        new SqlParameter("@idControl", pPermission.idControl),
                         new SqlParameter("@idPermissionType", pPermission.idPermissionType),
-                        new SqlParameter("@idPersonnalInsert", pPermission.idPersonnalInsert)
+                        new SqlParameter("@idPersonnalInsert", pPermission.idPersonnalInsert),
+                        new SqlParameter("@Enable", pPermission.Enable),
 
                       };
 

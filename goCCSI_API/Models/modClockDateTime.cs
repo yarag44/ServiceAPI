@@ -23,11 +23,11 @@ namespace goCCSI_API.Models
 
         public string Search { get; set; }
 
-        public int idDivision { get; set; }
+        public string idDivisions { get; set; }
 
         public int idCenter { get; set; }
 
-        public int idArea { get; set; }
+        public string idAreas { get; set; }
 
         public int idBussinessModel { get; set; }
 
@@ -46,6 +46,12 @@ namespace goCCSI_API.Models
         public string noEmployee { get; set; }
 
         public string Name { get; set; }
+
+        public string LastName { get; set; }
+
+        public string MotherLastName { get; set; }
+
+        public string CompleteName { get; set; }
 
         public int idDivision { get; set; }
 
@@ -67,7 +73,7 @@ namespace goCCSI_API.Models
 
         public string ClockTime { get; set; }
 
-        public int idCheckType { get; set; }
+        public int idStatus { get; set; }
 
         public string checkType { get; set; }
 

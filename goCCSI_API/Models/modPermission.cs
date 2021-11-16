@@ -11,6 +11,12 @@ namespace goCCSI_API.Models
         public int idPermission { get; set; }
 
         public string Permission { get; set; }
+        
+        public string Route { get; set; }
+        
+        public string idControl { get; set; }
+
+        public bool Enable { get; set; }
 
         public int idPermissionType { get; set; }
 
@@ -31,6 +37,12 @@ namespace goCCSI_API.Models
 
         public int idPersonnalInsert { get; set; }
 
+        public string Route { get; set; }
+
+        public string idControl { get; set; }
+
+        public bool Enable { get; set; }
+
 
     }
 
@@ -50,6 +62,12 @@ namespace goCCSI_API.Models
         public int idPersonnalLastModify { get; set; }
 
         public string PermissionType { get; set; }
+
+        public string Route { get; set; }
+
+        public string idControl { get; set; }
+
+        public bool Enable { get; set; }
 
 
     }
