@@ -219,9 +219,8 @@ namespace goCCSI_API.DL
             {
                 new SqlParameter("@OPTION", pNews.Option),
                 new SqlParameter("@IdWritter", pNews.idWritter),
-                new SqlParameter("@Top", pNews.Top)
-
-
+                new SqlParameter("@Top", pNews.Top),
+                new SqlParameter("@Clasification", pNews.Clasification)
             };
 
             DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "nws.SelectNewsWithFilters", par).Tables[0];

@@ -56,6 +56,8 @@ namespace goCCSI_API.Models
 
         public bool IsExpired { get; set; }
 
+        public string Clasification { get; set; }
+
 
     }
 
@@ -132,9 +134,12 @@ namespace goCCSI_API.Models
 
         public int Option { get; set; }
 
-        public int idWritter { get; set; }
+        public string idWritter { get; set; }
 
         public int Top { get; set; }
+
+
+        public int Clasification { get; set; }
 
     }
 
