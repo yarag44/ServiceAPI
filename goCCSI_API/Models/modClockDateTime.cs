@@ -10,6 +10,8 @@ namespace goCCSI_API.Models
 
         public int idPersonnal { get; set; }
 
+        public int idCenter { get; set; }
+
         public int idStatus { get; set; }
 
 

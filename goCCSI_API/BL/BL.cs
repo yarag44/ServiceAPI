@@ -88,25 +88,6 @@ namespace goCCSI_API.BL
         }
 
 
-        public List<modPermissionsCatalogSelect> SelectPermissionsCatalog(modPermissionsCatalogSelect pPermissionCatalog)
-        {
-            return dLayer.SelectPermissionsCatalog(pPermissionCatalog);
-
-        }
-
-        public List<modPermissionsDetail> SelectPermissionsDetail(modPermissionDetailParams pPermissionDetail)
-        {
-            return dLayer.SelectPermissionsDetail(pPermissionDetail);
-
-        }
-
-        public modPermissionDetailID InsertDeletePermissionsDetail(modPermissionDetailParams pPermissionDetail)
-        {
-            return dLayer.InsertDeletePermissionsDetail(pPermissionDetail);
-        }
-
-
-
         public List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews)
         {
             return dLayer.SelectNewsRelations(pNews);
@@ -344,13 +325,29 @@ namespace goCCSI_API.BL
         }
 
 
-
-
+        #region MAILS
+        public modMailsID InsertUpdateMails(modMailsParams pMails)
+        {
+            return dLayer.InsertUpdateMails(pMails);
         }
 
 
+        public List<modMailsSelect> SelectMails(modMailsSelectParams cMails)
+        {
 
-        public class BLFunction
+            return dLayer.SelectMails(cMails);
+        }
+
+        #endregion
+
+
+
+
+    }
+
+
+
+    public class BLFunction
     {
 
         public List<T> ConvertDataTable<T>(DataTable dt)

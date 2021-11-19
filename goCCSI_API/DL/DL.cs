@@ -101,14 +101,6 @@ namespace goCCSI_API.DL
         }
 
 
-
-
-
-
-
-
-
-
         public int InsertClockDateTime(modClockDateTime pClock)
         {
 
@@ -116,6 +108,7 @@ namespace goCCSI_API.DL
                       {
 
                         new SqlParameter("@IDPERSONNAL", pClock.idPersonnal),
+                         new SqlParameter("@IDCENTER", pClock.idCenter),
                         new SqlParameter("@IDSTATUS", pClock.idStatus)
 
                       };
@@ -131,7 +124,6 @@ namespace goCCSI_API.DL
 
 
         }
-
 
         public List<modSelectClockDateTime> SelectClockdateTime(modSelectClockDateTimeParams pClock)
         {
@@ -185,8 +177,6 @@ namespace goCCSI_API.DL
 
         }
 
-
-
         public List<modNewsSelectFilterResult> SelectFiltersNews(modNewsSelectFilterParams pNews)
         {
             List<modNewsSelectFilterResult> lstPersonnal = new List<modNewsSelectFilterResult>();
@@ -207,8 +197,6 @@ namespace goCCSI_API.DL
             return lstPersonnal;
 
         }
-
-
 
         public List<modNews> SelectNewsWithFilters(modNewsSelectWithFilterParams pNews)
         {
@@ -268,14 +256,6 @@ namespace goCCSI_API.DL
 
         }
 
-
-
-
-
-
-
-
-
         public List<modNews> SelectNewsView(modNewsViewParams pNews)
         {
             List<modNews> lstNews = new List<modNews>();
@@ -297,21 +277,6 @@ namespace goCCSI_API.DL
             return lstNews;
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         public modNews InsertNew(modNewsParamsInsert pNews)
         {
@@ -349,7 +314,6 @@ namespace goCCSI_API.DL
 
 
         }
-
 
         public modNews InsertUpdateNew(modNewsParamsInsertUpdate pNews)
         {
@@ -395,7 +359,6 @@ namespace goCCSI_API.DL
 
         }
 
-
         public modidNews DeleteNews(modDeleteNewsParams pNews)
         {
 
@@ -430,8 +393,6 @@ namespace goCCSI_API.DL
 
         }
 
-
-
         public List<modNewsRelation> SelectNewsRelations(modNewsRelationParams pNews)
         {
             List<modNewsRelation> lstRelations = new List<modNewsRelation>();
@@ -452,9 +413,6 @@ namespace goCCSI_API.DL
 
         }
 
-
-
-
         public List<modNewsRelationCatalog> SelectNewsRelationsAllCatalogs(modNewsRelationAllCatalogsParams pNews)
         {
             List<modNewsRelationCatalog> lstRelations = new List<modNewsRelationCatalog>();
@@ -474,14 +432,6 @@ namespace goCCSI_API.DL
             return lstRelations;
 
         }
-
-
-
-
-
-
-
-
 
         public modNewsRelation AddNewsRelations(modAddNewsRelationParams pNews)
         {
@@ -514,7 +464,6 @@ namespace goCCSI_API.DL
 
         }
 
-
         public bool RemoveNewsRelations(modRemoveNewsRelationParams pNews)
         {
 
@@ -533,6 +482,7 @@ namespace goCCSI_API.DL
             return true;
 
         }
+
 
 
 
@@ -594,7 +544,6 @@ namespace goCCSI_API.DL
 
         }
 
-
         public modidPermission DeletePermission(modDeletePermissionParams pPermission)
         {
 
@@ -630,81 +579,6 @@ namespace goCCSI_API.DL
         }
 
 
-        public List<modPermissionsCatalogSelect> SelectPermissionsCatalog(modPermissionsCatalogSelect pPermissionCatalog)
-        {
-            List<modPermissionsCatalogSelect> lstPermissionCatalog = new List<modPermissionsCatalogSelect>();
-            BLFunction bFunc = new BLFunction();
-
-            /*
-            SqlParameter[] par = new SqlParameter[]
-            {
-
-                new SqlParameter("@IDCATALOG", pCatalogOption.idCatalog)
-
-            };*/
-
-            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectPermissionsCatalog").Tables[0];
-
-            lstPermissionCatalog = bFunc.ConvertDataTable<modPermissionsCatalogSelect>(dt);
-
-            return lstPermissionCatalog;
-
-        }
-
-
-        public List<modPermissionsDetail> SelectPermissionsDetail(modPermissionDetailParams pPermissionsDetail)
-        {
-            List<modPermissionsDetail> lstPermissionDetail = new List<modPermissionsDetail>();
-            BLFunction bFunc = new BLFunction();
-
-            SqlParameter[] par = new SqlParameter[]
-            {
-                new SqlParameter("@OPTION", pPermissionsDetail.Option),
-                new SqlParameter("@IDPERMISSION", pPermissionsDetail.idPermission),
-                new SqlParameter("@IDPERMISSIONCATALOG", pPermissionsDetail.idPermissionCatalog)
-
-            };
-
-            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectPermissionsDetail", par).Tables[0];
-
-            lstPermissionDetail = bFunc.ConvertDataTable<modPermissionsDetail>(dt);
-
-            return lstPermissionDetail;
-
-        }
-
-
-        public modPermissionDetailID InsertDeletePermissionsDetail(modPermissionDetailParams cPerCat)
-        {
-
-            modPermissionDetailID cPermissionDetail = new modPermissionDetailID();
-            BLFunction bFunc = new BLFunction();
-
-            SqlParameter[] par = new SqlParameter[]
-                      {
-
-                        new SqlParameter("@OPTION", cPerCat.Option),
-                        new SqlParameter("@IDPERMISSION", cPerCat.idPermission),
-                        new SqlParameter("@IDPERMISSIONCATALOG", cPerCat.idPermissionCatalog)
-
-                      };
-
-            object objID = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.InsertDeletePermissionsDetail", par);
-
-            if (objID != null)
-            {
-                cPermissionDetail.idPermissionDetail = Convert.ToInt32(objID);
-                //bFunc.CopierProperty(pPermission, cPermission);
-            }
-            else
-            {
-                cPermissionDetail.idPermissionDetail = Convert.ToInt32(0);
-                //bFunc.CopierProperty(pPermission, cPermission);
-            }
-            return cPermissionDetail;
-
-
-        }
 
 
         public List<modCatalogOptionsSelect> SelectCatalogOptions(modCatalogOptionsSelectParams pCatalogOption)
@@ -729,8 +603,6 @@ namespace goCCSI_API.DL
 
         }
 
-
-
         public List<modCatalogOptionsSelect> SelectCatalogOptionsManyCatalogs(modCatalogOptionsManyCatalogsParams pCatalogOption)
         {
             List<modCatalogOptionsSelect> lstCatalogOptions = new List<modCatalogOptionsSelect>();
@@ -750,8 +622,6 @@ namespace goCCSI_API.DL
             return lstCatalogOptions;
 
         }
-
-
 
 
 
@@ -848,9 +718,6 @@ namespace goCCSI_API.DL
             return cNews;
 
         }
-
-
-
 
 
 
@@ -1082,8 +949,6 @@ namespace goCCSI_API.DL
 
 
 
-
-
         public modPersonnalRolesID InsertDeletePersonnalRoles(modPersonnalRolesParams cPer)
         {
 
@@ -1143,11 +1008,6 @@ namespace goCCSI_API.DL
 
 
 
-
-
-
-
-
         public modServicesPermissionID InsertDeleteServicesPermissions(modServicesPermissionParams cServ)
         {
 
@@ -1202,8 +1062,6 @@ namespace goCCSI_API.DL
 
 
         }
-
-
 
 
 
@@ -1295,7 +1153,6 @@ namespace goCCSI_API.DL
 
 
         }
-
 
 
 
@@ -1475,8 +1332,6 @@ namespace goCCSI_API.DL
 
         }
 
-
-
         public List<modSelectServicesByIdPersonnalResult> SelectServicesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
         {
 
@@ -1500,8 +1355,6 @@ namespace goCCSI_API.DL
 
 
         }
-
-
 
         public List<modSelectRolesByIdPersonnalResult> SelectRolesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData)
         {
@@ -1561,9 +1414,6 @@ namespace goCCSI_API.DL
 
         }
 
-
-
-
         public modQtyPinToTop Select_PinToTopQTY(modQtyPinToTopParams cNew)
         {
 
@@ -1594,10 +1444,6 @@ namespace goCCSI_API.DL
             return cQty;
 
         }
-
-
-
-
 
 
         public modPersonnalPhotosResult Select_PhotosPersonnalByCriteria(modPersonnalPhotosParams cPer)
@@ -1632,6 +1478,79 @@ namespace goCCSI_API.DL
         }
 
 
+
+        #region MAILS
+
+        public modMailsID InsertUpdateMails(modMailsParams pMail)
+        {
+
+            modMailsID cMail = new modMailsID();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@IDCENTER", pMail.idCenter),
+                        new SqlParameter("@IDMAIL", pMail.idMail),
+                        new SqlParameter("@IDPERSONNALSENT", pMail.idPersonnalSent),
+                        new SqlParameter("@IDPERSSONALRECEIVE", pMail.idPersonnalReceive),
+                        new SqlParameter("@IDASSIGNAREA", pMail.idAssignArea),
+                        new SqlParameter("@SUBJECT", pMail.Subject),
+                        new SqlParameter("@BODY", pMail.Body),
+                        new SqlParameter("@IDSTATUS", pMail.idStatus),
+                        new SqlParameter("@ACTIVE", pMail.Active),
+
+                      };
+
+            object idMail = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "mli.InsertUpdateMails", par);
+
+            if (idMail != null)
+            {
+                cMail.idMail = Convert.ToInt32(idMail);
+                bFunc.CopierProperty(pMail, cMail);
+            }
+            else
+            {
+                cMail.idMail = 0;
+                bFunc.CopierProperty(pMail, cMail);
+            }
+            return cMail;
+
+
+        }
+
+
+        public List<modMailsSelect> SelectMails(modMailsSelectParams cMail)
+        {
+
+            List<modMailsSelect> lstMails = new List<modMailsSelect>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cMail.Option),
+                new SqlParameter("@IDPERSONNALSENT", cMail.idPersonnalSent),
+                new SqlParameter("@IDPERSSONALRECEIVE", cMail.idPersonnalReceive),
+                new SqlParameter("@IDASSIGNAREA", cMail.idAssignArea),
+                new SqlParameter("@SUBJECT", cMail.Subject),
+                new SqlParameter("@BODY", cMail.Body),
+                new SqlParameter("@IDSTATUS", cMail.idStatus),
+                new SqlParameter("@ACTIVE", cMail.Active)
+
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "mli.SelectMails", par).Tables[0];
+
+            lstMails = bFunc.ConvertDataTable<modMailsSelect>(dt);
+
+            return lstMails;
+
+
+        }
+
+        #endregion
 
 
 

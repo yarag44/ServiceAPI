@@ -141,13 +141,6 @@ namespace goCCSI_API.Interfaces
 
         List<modSelectPermissionByIdPersonnalResult> SelectPermissionsByIdPersonnal(modSelectPermissionByIdPersonnalParams cData);
 
-
-        //CatalogPermissions
-        List<modPermissionsCatalogSelect> SelectPermissionsCatalog(modPermissionsCatalogSelect pPermissionCatalog);
-
-        //Permissions Detail
-        modPermissionDetailID InsertDeletePermissionsDetail(modPermissionDetailParams pPermissionDetail);
-
         List<modSelectServicesByIdPersonnalResult> SelectServicesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData);
 
         List<modSelectRolesByIdPersonnalResult> SelectRolesByIdPersonnal(modSelectPermissionByIdPersonnalParams cData);
@@ -161,6 +154,15 @@ namespace goCCSI_API.Interfaces
 
         List<modCatalogOptionsSelect> SelectCatalogOptionsManyCatalogs(modCatalogOptionsManyCatalogsParams pCatalogOption);
 
+
+        #endregion
+
+
+        #region MAILS
+
+        modMailsID InsertUpdateMails(modMailsParams pMails);
+
+        List<modMailsSelect> SelectMails(modMailsSelectParams pMails);
 
         #endregion
 
