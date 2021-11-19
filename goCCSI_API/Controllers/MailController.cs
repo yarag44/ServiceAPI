@@ -11,14 +11,12 @@ namespace goCCSI_API.Controllers
     [EnableCors("MyPolicy")]
     [ApiController]
     [Route("[controller]")]
-    //[Authorize]
-    public class PermissionDetailController : Controller
+
+    public class MailController : Controller
     {
-
-
         [HttpPost]
-        [Route("SelectPermissionsDetail")]
-        public async Task<IActionResult> SelectPermissionsDetail(modPermissionDetailParams pPermissionDetail)
+        [Route("InsertUpdateMails")]
+        public async Task<IActionResult> InsertUpdateMails(modMailsParams pMails)
         {
 
             if (!ModelState.IsValid)
@@ -32,18 +30,18 @@ namespace goCCSI_API.Controllers
 
                 BL.BL bLayer = new BL.BL();
 
-                List<modPermissionsDetail> cPermissionDetail = bLayer.SelectPermissionsDetail(pPermissionDetail);
+                 modMailsID MailsID = bLayer.InsertUpdateMails(pMails);
 
-                return await Task.Run(() => Ok(cPermissionDetail));
+                return await Task.Run(() => Ok(MailsID));
 
             }
+
 
         }
 
-
         [HttpPost]
-        [Route("InsertDeletePermissionsDetail")]
-        public async Task<IActionResult> InsertDeletePermissionsDetail(modPermissionDetailParams pPermissionDetail)
+        [Route("SelectMails")]
+        public async Task<IActionResult> SelectSMails(modMailsSelectParams pMails)
         {
 
             if (!ModelState.IsValid)
@@ -57,11 +55,12 @@ namespace goCCSI_API.Controllers
 
                 BL.BL bLayer = new BL.BL();
 
-                modPermissionDetailID cPermissionDetailID = bLayer.InsertDeletePermissionsDetail(pPermissionDetail);
+                List<modMailsSelect> lstMails = bLayer.SelectMails(pMails);
 
-                return await Task.Run(() => Ok(cPermissionDetailID));
+                return await Task.Run(() => Ok(lstMails));
 
             }
+
 
         }
     }
