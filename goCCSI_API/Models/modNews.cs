@@ -58,6 +58,9 @@ namespace goCCSI_API.Models
 
         public string Clasification { get; set; }
 
+        public string ClasificationSpanish { get; set; }
+
+
 
     }
 
@@ -136,10 +139,10 @@ namespace goCCSI_API.Models
 
         public string idWritter { get; set; }
 
-        public int Top { get; set; }
+        public string Top { get; set; }
 
 
-        public int Clasification { get; set; }
+        public string Clasification { get; set; }
 
     }
 
@@ -237,6 +240,7 @@ namespace goCCSI_API.Models
 
         public string OptionValue { get; set; }
 
+        public string OptionValueSpanish { get; set; }
 
     }
 
@@ -248,6 +252,8 @@ namespace goCCSI_API.Models
         public int idCatalogOptions { get; set; }
 
         public string OptionValue { get; set; }
+
+        public string OptionValueSpanish { get; set; }
 
 
     }
