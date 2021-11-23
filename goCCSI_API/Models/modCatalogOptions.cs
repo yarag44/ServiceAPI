@@ -34,6 +34,9 @@ namespace goCCSI_API.Models
         public int idCatalogOptions { get; set; }
         public int idCatalog { get; set; }
         public string OptionValue { get; set; }
+
+        public string OptionValueSpanish { get; set; }
+
         public bool Active { get; set; }
 
     }
