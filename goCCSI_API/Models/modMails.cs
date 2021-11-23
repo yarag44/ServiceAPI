@@ -84,7 +84,7 @@ namespace goCCSI_API.Models
 
         public string Body { get; set; }
 
-        public int idStatus { get; set; }
+        public string idStatus { get; set; }
 
         public bool Active { get; set; }
 

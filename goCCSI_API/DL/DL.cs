@@ -1553,5 +1553,35 @@ namespace goCCSI_API.DL
 
 
 
+        #region MAILS LOG
+
+        public List<modMailsLogSelect> SelectMailsLog(modMailsLogSelectParams cMailLog)
+        {
+
+            List<modMailsLogSelect> lstMailsLog = new List<modMailsLogSelect>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cMailLog.Option),
+                new SqlParameter("@IDMAIL", cMailLog.idMail)
+
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "mli.SelectMailsLog", par).Tables[0];
+
+            lstMailsLog = bFunc.ConvertDataTable<modMailsLogSelect>(dt);
+
+            return lstMailsLog;
+
+
+        }
+
+        #endregion
+
+
+
     }
 }

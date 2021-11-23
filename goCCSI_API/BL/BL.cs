@@ -341,6 +341,16 @@ namespace goCCSI_API.BL
         #endregion
 
 
+        #region MAILS LOG
+
+        public List<modMailsLogSelect> SelectMailsLog(modMailsLogSelectParams cMailsLog)
+        {
+
+            return dLayer.SelectMailsLog(cMailsLog);
+        }
+
+        #endregion
+
 
 
     }

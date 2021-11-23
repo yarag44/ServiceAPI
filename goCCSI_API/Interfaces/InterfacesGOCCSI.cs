@@ -167,6 +167,14 @@ namespace goCCSI_API.Interfaces
         #endregion
 
 
+        #region MAILS LOG
+
+        List<modMailsLogSelect> SelectMailsLog(modMailsLogSelectParams pMailsLog);
+       
+
+        #endregion
+
+
 
 
     }
