@@ -134,7 +134,7 @@ namespace goCCSI_API
             app.UseSwaggerUI(c =>
             {
 
-                c.SwaggerEndpoint("/swagger/V1/swagger.json", "goCCSI_API");
+                c.SwaggerEndpoint("../swagger/V1/swagger.json", "goCCSI_API");
 
             });
 
