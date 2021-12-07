@@ -19,6 +19,7 @@ namespace goCCSI_API.BL
             dLayer = new DL.DL();
         }
 
+        #region Clock
         public int InsertClockDateTime(modClockDateTime pClock)
         {
             return dLayer.InsertClockDateTime(pClock);
@@ -34,6 +35,13 @@ namespace goCCSI_API.BL
         {
             return dLayer.SelectClockdateTime(pClock);
         }
+
+        public List<modSelectCurrentDateTime> SelectCurrentDateTime(modSelectCurrentDateTimeParams pClock)
+        {
+            return dLayer.SelectCurrentDateTime(pClock);
+        }
+
+        #endregion
 
         public List<modNews> SelectNews(modNewsParams pNews)
         {

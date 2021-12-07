@@ -101,6 +101,7 @@ namespace goCCSI_API.DL
         }
 
 
+        #region Clock
         public int InsertClockDateTime(modClockDateTime pClock)
         {
 
@@ -154,6 +155,26 @@ namespace goCCSI_API.DL
         }
 
 
+        public List<modSelectCurrentDateTime> SelectCurrentDateTime(modSelectCurrentDateTimeParams pClock)
+        {
+            List<modSelectCurrentDateTime> lstClock = new List<modSelectCurrentDateTime>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+                new SqlParameter("@IDCENTER", pClock.idCenter)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "clk.SelectCurrentDateTimeByCenter", par).Tables[0];
+
+            lstClock = bFunc.ConvertDataTable<modSelectCurrentDateTime>(dt);
+
+            return lstClock;
+
+        }
+
+        #endregion
 
         public List<modNews> SelectNews(modNewsParams pNews)
         {

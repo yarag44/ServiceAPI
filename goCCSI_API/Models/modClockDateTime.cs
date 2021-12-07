@@ -84,4 +84,15 @@ namespace goCCSI_API.Models
     }
 
 
+    public class modSelectCurrentDateTimeParams
+    {
+        public int idCenter { get; set; }
+    }
+
+    public class modSelectCurrentDateTime
+    {
+        public DateTime currentDateTime { get; set; }
+    }
+
+
 }

@@ -16,11 +16,6 @@ namespace goCCSI_API.Controllers
     {
         private readonly IConfiguration config;
 
-        public ClockController()
-        {
-
-        }
-
 
         [HttpPost]
         [Route("InsertClockDateTime")]
@@ -67,6 +62,32 @@ namespace goCCSI_API.Controllers
                 BL.BL bLayer = new BL.BL();
 
                 List<modSelectClockDateTime> lstClock = bLayer.SelectClockdateTime(clock);
+
+                return await Task.Run(() => Ok(lstClock));
+
+            }
+
+
+        }
+
+
+        [HttpPost]
+        [Route("SelectCurrentDateTime")]
+        public async Task<IActionResult> SelectCurrentDateTime(modSelectCurrentDateTimeParams clock)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modSelectCurrentDateTime> lstClock = bLayer.SelectCurrentDateTime(clock);
 
                 return await Task.Run(() => Ok(lstClock));
 
