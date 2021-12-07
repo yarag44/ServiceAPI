@@ -1604,5 +1604,56 @@ namespace goCCSI_API.DL
 
 
 
+        #region LOG ACCESS
+
+
+        public modLogAccessReturn Insert_LogAccess(modLogAccessParams pLogAccess)
+        {
+
+            //modMailsID cMail = new modMailsID();
+            //BLFunction bFunc = new BLFunction();
+
+            modLogAccessReturn cLog = new modLogAccessReturn();
+            cLog.idLogAccess = 0;
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@idPersonnal", pLogAccess.idPersonnal),
+                        new SqlParameter("@idPage", pLogAccess.idPage),
+                     
+                      };
+
+            object idLogAccess = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.Insert_LogAccess", par);
+
+           
+            if( idLogAccess == null )
+            {
+                cLog.idLogAccess = 0; 
+
+            }
+            else
+            {
+                cLog.idLogAccess = Convert.ToInt32(idLogAccess);
+                    
+
+            }
+
+
+
+            return cLog;
+
+
+        }
+
+
+
+
+        #endregion
+
+
+
+
+
     }
 }
