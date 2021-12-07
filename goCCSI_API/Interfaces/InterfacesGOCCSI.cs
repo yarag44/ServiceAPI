@@ -170,12 +170,18 @@ namespace goCCSI_API.Interfaces
         #region MAILS LOG
 
         List<modMailsLogSelect> SelectMailsLog(modMailsLogSelectParams pMailsLog);
+
+
+        #endregion
+
+        #region LOG ACCESS 
+
+
+        modLogAccessReturn Insert_LogAccess(modLogAccessParams pLogAccess);
        
 
         #endregion
 
 
-
-
-    }
+        }
 }

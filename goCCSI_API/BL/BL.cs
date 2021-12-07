@@ -353,7 +353,18 @@ namespace goCCSI_API.BL
 
 
 
-    }
+        public modLogAccessReturn Insert_LogAccess(modLogAccessParams pLogAccess)
+        {
+
+            return dLayer.Insert_LogAccess(pLogAccess);    
+
+
+        }
+
+
+
+
+   }
 
 
 
