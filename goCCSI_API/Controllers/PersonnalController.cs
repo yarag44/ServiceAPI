@@ -217,7 +217,29 @@ namespace goCCSI_API.Controllers
         }
 
 
+        [HttpPost]
+        [Route("SelectPersonnalExtraInfo")]
+        public async Task<IActionResult> SelectPersonnalExtraInfo(modPersonnalExtraInfoParams pPer)
+        {
 
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                List<modPersonnalExtraInfoResult> lstPerRoles = bLayer.SelectPersonnalExtraInfo(pPer);
+
+                return await Task.Run(() => Ok(lstPerRoles));
+
+            }
+
+        }
 
 
 
