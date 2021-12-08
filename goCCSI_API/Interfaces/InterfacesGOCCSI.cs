@@ -8,30 +8,27 @@ namespace goCCSI_API.Interfaces
 {
    interface InterfacesGOCCSI
     {
+        #region PERSONNAL
 
         List<modPersonnal> SelectPersonnal(modLogin plogin);
         modPersonnalPasswordID UpdatePersonnalPassword(modPersonnalPasswordParams cPer);
         List<modPersonalServices> SelectPersonnalServices(modPersonalServicesParams cPer);
 
 
-
-
-
+ 
         modPersonnalRolesID InsertDeletePersonnalRoles(modPersonnalRolesParams cPer);
         List<modPersonnalRoles> SelectPersonnalRoles(modPersonnalRolesParams cPer);
 
 
 
-
-
-
-
         modPersonnalID InsertDeletePersonnalServices(modPersonalServicesParams pPer);
-
         List<modPersonnal> Select_CatPersonnalFilters(modPersonnalFiltersParams pPer);
-
         modPersonnalPhotosResult Select_PhotosPersonnalByCriteria(modPersonnalPhotosParams cPer);
 
+
+        List<modPersonnalExtraInfoResult> SelectPersonnalExtraInfo(modPersonnalExtraInfoParams cPer);
+
+        #endregion
 
 
         #region CLOCK
@@ -98,7 +95,6 @@ namespace goCCSI_API.Interfaces
         #endregion
 
 
-
         #region ROLES
 
         modRolesID InsertUpdateRoles(modRolesParams cRoles);
@@ -109,8 +105,6 @@ namespace goCCSI_API.Interfaces
         modRolesServicesID InsertDeleteRolesServices(modRolesServicesParams cRoles);
 
         #endregion
-
-
 
 
         #region SERVICE
@@ -128,8 +122,6 @@ namespace goCCSI_API.Interfaces
 
 
         #endregion
-
-
 
 
         #region PERMISSIONS

@@ -22,6 +22,8 @@ namespace goCCSI_API.DL
             ConnectionDWP = @"Server=tcp:ccsidigitalworkplace.database.windows.net,1433;Initial Catalog=CCSIDigitalWorkPlace;Persist Security Info=False;User ID=ccsiadmin;Password=G3nerico01#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         }
 
+        #region PERSONNAL
+
         public List<modPersonnal> SelectPersonnal(modLogin plogin)
         {
             List<modPersonnal> lstPersonnal = new List<modPersonnal>();
@@ -100,8 +102,30 @@ namespace goCCSI_API.DL
 
         }
 
+        public List<modPersonnalExtraInfoResult> SelectPersonnalExtraInfo(modPersonnalExtraInfoParams cPer)
+        {
+            List<modPersonnalExtraInfoResult> lstPersonnal = new List<modPersonnalExtraInfoResult>();
+            BLFunction bFunc = new BLFunction();
 
-        #region Clock
+            SqlParameter[] par = new SqlParameter[]
+            {
+                new SqlParameter("@OPTION", cPer.Option),
+                new SqlParameter("@IDPERSONNAL", cPer.idPersonnal)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectPersonnalExtraInfo", par).Tables[0];
+
+            lstPersonnal = bFunc.ConvertDataTable<modPersonnalExtraInfoResult>(dt);
+
+            return lstPersonnal;
+        }
+
+        #endregion
+
+
+        #region CLOCK
+
         public int InsertClockDateTime(modClockDateTime pClock)
         {
 
@@ -175,6 +199,9 @@ namespace goCCSI_API.DL
         }
 
         #endregion
+
+
+        #region NEWS
 
         public List<modNews> SelectNews(modNewsParams pNews)
         {
@@ -503,8 +530,10 @@ namespace goCCSI_API.DL
 
         }
 
+        #endregion
 
 
+        #region PERMISSIONS
 
         public modPermission InsertUpdatePermissions(modPermissionParams pPermission)
         {
@@ -598,6 +627,7 @@ namespace goCCSI_API.DL
 
         }
 
+        #endregion
 
 
 
@@ -1085,6 +1115,7 @@ namespace goCCSI_API.DL
 
 
 
+        #region SERVICES
 
         public modServicesID InsertUpdateServices(modServicesParams pServices)
         {
@@ -1174,10 +1205,12 @@ namespace goCCSI_API.DL
 
         }
 
+        #endregion
 
 
 
 
+        #region ROLES
 
         public List<modRoles> SelectRoles(modRolesParams pRoles)
         {
@@ -1324,6 +1357,7 @@ namespace goCCSI_API.DL
 
         }
 
+        #endregion
 
 
 

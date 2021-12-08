@@ -48,6 +48,7 @@ namespace goCCSI_API.BL
             return dLayer.SelectNews(pNews);
         }
 
+        #region PERSONNAL
         public List<modPersonnal> SelectPersonnal(modLogin plogin)
         {
             return dLayer.SelectPersonnal(plogin);
@@ -59,6 +60,15 @@ namespace goCCSI_API.BL
             return dLayer.UpdatePersonnalPassword(cPer);
         }
 
+        public List<modPersonnalExtraInfoResult> SelectPersonnalExtraInfo(modPersonnalExtraInfoParams cPer)
+        {
+            return dLayer.SelectPersonnalExtraInfo(cPer);
+
+        }
+
+
+
+        #endregion
 
         public modNews InsertUpdateNew(modNewsParamsInsertUpdate pNews)
         {

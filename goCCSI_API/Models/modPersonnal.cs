@@ -66,7 +66,6 @@ namespace goCCSI_API.Models
 
 
 
-
     public class modPersonalServicesParams
     {
 
@@ -87,6 +86,7 @@ namespace goCCSI_API.Models
         public int idService { get; set; }
 
     }
+
 
 
     public class modPersonnalID
@@ -129,7 +129,6 @@ namespace goCCSI_API.Models
 
     }
 
-
     public class modPersonnalRoles
     {
 
@@ -144,8 +143,10 @@ namespace goCCSI_API.Models
     {
 
         public int idPersonnalRole { get; set; }
-        
+
     }
+
+
 
     public class modPersonnalPasswordParams
     {
@@ -166,13 +167,12 @@ namespace goCCSI_API.Models
 
 
 
-
     public class modPersonnalPhotosParams
     {
         public int Option { get; set; }
 
         public int IdPersonnal { get; set; }
-        
+
         public string Criteria { get; set; }
 
 
@@ -181,8 +181,6 @@ namespace goCCSI_API.Models
 
     }
 
-
-
     public class modPersonnalPhotosResult
     {
 
@@ -190,5 +188,23 @@ namespace goCCSI_API.Models
 
     }
 
+    public class modPersonnalExtraInfoParams
+    {
+        public int Option { get; set; }
+
+        public int idPersonnal { get; set; }
+    }
+
+    public class modPersonnalExtraInfoResult
+    {
+        public int idPersonnal { get; set; }
+
+        public decimal balanceDayEnjoy { get; set; }
+
+        public decimal balanceDayPay { get; set; }
+
+        public decimal balanceDayPremium { get; set; }
 
     }
+
+}
