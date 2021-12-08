@@ -30,6 +30,10 @@ namespace goCCSI_API.Models
         public int idPage { get; set; }
 
 
+        public int isFailedAccess { get; set; }
+
+         
+
     }
 
 

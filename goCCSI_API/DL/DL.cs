@@ -1621,7 +1621,8 @@ namespace goCCSI_API.DL
 
                         new SqlParameter("@idPersonnal", pLogAccess.idPersonnal),
                         new SqlParameter("@idPage", pLogAccess.idPage),
-                     
+                        new SqlParameter("@isFailedAccess", pLogAccess.isFailedAccess),
+
                       };
 
             object idLogAccess = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.Insert_LogAccess", par);
