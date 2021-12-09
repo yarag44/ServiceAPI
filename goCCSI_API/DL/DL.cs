@@ -19,7 +19,12 @@ namespace goCCSI_API.DL
 
         public DL()
         {
-            ConnectionDWP = @"Server=tcp:ccsidigitalworkplace.database.windows.net,1433;Initial Catalog=CCSIDigitalWorkPlace;Persist Security Info=False;User ID=ccsiadmin;Password=G3nerico01#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            //DEVELOP
+            //ConnectionDWP = @"Server=tcp:ccsidigitalworkplace.database.windows.net,1433;Initial Catalog=CCSIDigitalWorkPlace;Persist Security Info=False;User ID=ccsiadmin;Password=G3nerico01#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+            //PRODUCTION
+            ConnectionDWP = "Server=tcp:prod-goccsi-sql.database.windows.net,1433;Initial Catalog=Prod_GoCCSI_SQL;Persist Security Info=False;User ID=goCCSI2022;Password=goCCSI_prod2022#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout= 30;";
+
         }
 
         #region PERSONNAL
