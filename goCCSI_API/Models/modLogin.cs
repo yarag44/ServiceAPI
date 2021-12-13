@@ -10,7 +10,7 @@ namespace goCCSI_API.Models
 
         public int Option { get; set; }
         public int idPersonnal { get; set; }
-        public int NoEmployee { get; set; }
+        public string NoEmployee { get; set; }
         public int idLocation { get; set; }
         public int idCenter { get; set; }
         public string Password { get; set; }
