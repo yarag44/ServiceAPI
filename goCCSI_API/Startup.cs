@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using goCCSI_API.BL;
 
 namespace goCCSI_API
 {
@@ -107,13 +108,18 @@ namespace goCCSI_API
             });
         }
 
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+
+
+
+            app.UseSwaggerAuthorized();
 
             app.UseHttpsRedirection();
 
@@ -127,7 +133,7 @@ namespace goCCSI_API
 
             app.UseAuthorization();
 
-
+            
 
             app.UseSwagger();
 

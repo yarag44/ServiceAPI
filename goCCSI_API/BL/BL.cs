@@ -1,5 +1,6 @@
 ﻿using goCCSI_API.Interfaces;
 using goCCSI_API.Models;
+using Microsoft.AspNetCore.Builder;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -435,6 +436,17 @@ namespace goCCSI_API.BL
                     }
                 }
             }
+        }
+
+    }
+
+
+    public static class Extension
+    {
+
+        public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<SwaggerBasicAuthMiddleware>();
         }
 
     }

@@ -19,6 +19,7 @@ namespace goCCSI_API.Controllers
     [EnableCors("MyPolicy")]
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class PersonnalController : Controller
     {
 
@@ -161,9 +162,6 @@ namespace goCCSI_API.Controllers
             }
 
         }
-
-
-
 
 
         [HttpPost]

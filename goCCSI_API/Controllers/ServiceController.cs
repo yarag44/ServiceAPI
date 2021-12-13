@@ -18,7 +18,7 @@ namespace goCCSI_API.Controllers
     [EnableCors("MyPolicy")]
     [ApiController]
     [Route("[controller]")]
-
+    [Authorize]
     public class ServiceController : Controller
     {
 

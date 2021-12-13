@@ -13,7 +13,7 @@ namespace goCCSI_API.Controllers
     [EnableCors("MyPolicy")]
     [ApiController]
     [Route("[controller]")]
-    //[Authorize]
+    [Authorize]
     public class NewController : Controller
     {
         private readonly IConfiguration config;

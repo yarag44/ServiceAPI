@@ -1,4 +1,5 @@
 ﻿using goCCSI_API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,7 +12,7 @@ namespace goCCSI_API.Controllers
     [EnableCors("MyPolicy")]
     [ApiController]
     [Route("[controller]")]
-
+    [Authorize]
     public class MailLogController : Controller
     {
         [HttpPost]

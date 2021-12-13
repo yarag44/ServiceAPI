@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using goCCSI_API.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace goCCSI_API.Controllers
 {
@@ -14,6 +15,7 @@ namespace goCCSI_API.Controllers
     [EnableCors("MyPolicy")]
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class LogAccessController : Controller
     {
 

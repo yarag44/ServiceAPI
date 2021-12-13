@@ -20,6 +20,7 @@ namespace goCCSI_API.Controllers
     [EnableCors("MyPolicy")]
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class RolesController : Controller
     {
         private readonly IConfiguration config;
