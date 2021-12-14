@@ -1692,6 +1692,45 @@ namespace goCCSI_API.DL
         #endregion
 
 
+        #region
+
+        public modLogPrivacy SelectInsert_LogPrivacy(modLogPrivacyParams pLogPrivacy)
+        {
+            modLogPrivacy cLog = new modLogPrivacy();
+            cLog.idLogPrivacy = 0;
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@OPTION", pLogPrivacy.Option),
+                        new SqlParameter("@IDPERSONNAL", pLogPrivacy.idPersonnal)
+
+                      };
+
+            object idLogPrivacy = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.SelectInsert_LogPrivacy", par);
+
+
+            if (idLogPrivacy == null)
+            {
+                cLog.idLogPrivacy = 0;
+
+            }
+            else
+            {
+                cLog.idLogPrivacy = Convert.ToInt32(idLogPrivacy);
+
+
+            }
+
+
+
+            return cLog;
+
+
+        }
+
+
+        #endregion
 
 
 

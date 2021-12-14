@@ -371,19 +371,33 @@ namespace goCCSI_API.BL
         #endregion
 
 
-
+        #region LOG ACCESS
         public modLogAccessReturn Insert_LogAccess(modLogAccessParams pLogAccess)
         {
 
             return dLayer.Insert_LogAccess(pLogAccess);    
 
+        }
+
+        #endregion
+
+
+        #region LOG PRIVACY
+
+        public modLogPrivacy SelectInsert_LogPrivacy(modLogPrivacyParams pLogPrivacy)
+        {
+
+            return dLayer.SelectInsert_LogPrivacy(pLogPrivacy);
 
         }
 
 
+        #endregion
 
 
-   }
+
+
+    }
 
 
 

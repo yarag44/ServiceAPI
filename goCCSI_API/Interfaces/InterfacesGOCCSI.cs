@@ -170,10 +170,17 @@ namespace goCCSI_API.Interfaces
 
 
         modLogAccessReturn Insert_LogAccess(modLogAccessParams pLogAccess);
-       
+
 
         #endregion
 
 
-        }
+        #region
+
+        modLogPrivacy SelectInsert_LogPrivacy(modLogPrivacyParams pLogPrivacy);
+
+        #endregion
+
+
+    }
 }
