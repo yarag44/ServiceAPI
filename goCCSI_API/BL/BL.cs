@@ -397,71 +397,71 @@ namespace goCCSI_API.BL
         }
         #endregion
 
-
-
-        public class BLFunction
-        {
-
-            public List<T> ConvertDataTable<T>(DataTable dt)
-            {
-                List<T> data = new List<T>();
-                foreach (DataRow row in dt.Rows)
-                {
-                    T item = GetItem<T>(row);
-                    data.Add(item);
-                }
-                return data;
-            }
-
-            public T GetItem<T>(DataRow dr)
-            {
-                Type temp = typeof(T);
-                T obj = Activator.CreateInstance<T>();
-
-                foreach (DataColumn column in dr.Table.Columns)
-                {
-                    foreach (PropertyInfo pro in temp.GetProperties())
-                    {
-                        if (pro.Name.ToUpper() == column.ColumnName.ToUpper())
-                            pro.SetValue(obj, dr[column.ColumnName], null);
-                        else
-                            continue;
-                    }
-                }
-                return obj;
-            }
-
-
-            public void CopierProperty<TParent, TChild>(TParent parent, TChild child)
-            {
-                var parentProperties = parent.GetType().GetProperties();
-                var childProperties = child.GetType().GetProperties();
-
-                foreach (var parentProperty in parentProperties)
-                {
-                    foreach (var childProperty in childProperties)
-                    {
-                        if (parentProperty.Name == childProperty.Name && parentProperty.PropertyType == childProperty.PropertyType)
-                        {
-                            childProperty.SetValue(child, parentProperty.GetValue(parent));
-                            break;
-                        }
-                    }
-                }
-            }
-
-        }
-
-
-        public static class Extension
-        {
-
-            public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder)
-            {
-                return builder.UseMiddleware<SwaggerBasicAuthMiddleware>();
-            }
-
-        }
     }
+
+    public class BLFunction
+    {
+
+        public List<T> ConvertDataTable<T>(DataTable dt)
+        {
+            List<T> data = new List<T>();
+            foreach (DataRow row in dt.Rows)
+            {
+                T item = GetItem<T>(row);
+                data.Add(item);
+            }
+            return data;
+        }
+
+        public T GetItem<T>(DataRow dr)
+        {
+            Type temp = typeof(T);
+            T obj = Activator.CreateInstance<T>();
+
+            foreach (DataColumn column in dr.Table.Columns)
+            {
+                foreach (PropertyInfo pro in temp.GetProperties())
+                {
+                    if (pro.Name.ToUpper() == column.ColumnName.ToUpper())
+                        pro.SetValue(obj, dr[column.ColumnName], null);
+                    else
+                        continue;
+                }
+            }
+            return obj;
+        }
+
+
+        public void CopierProperty<TParent, TChild>(TParent parent, TChild child)
+        {
+            var parentProperties = parent.GetType().GetProperties();
+            var childProperties = child.GetType().GetProperties();
+
+            foreach (var parentProperty in parentProperties)
+            {
+                foreach (var childProperty in childProperties)
+                {
+                    if (parentProperty.Name == childProperty.Name && parentProperty.PropertyType == childProperty.PropertyType)
+                    {
+                        childProperty.SetValue(child, parentProperty.GetValue(parent));
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    public static class Extension
+    {
+
+        public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<SwaggerBasicAuthMiddleware>();
+        }
+
+    }
+
 
 }
