@@ -177,7 +177,9 @@ namespace goCCSI_API.Interfaces
 
         #region
 
-        modLogPrivacy SelectInsert_LogPrivacy(modLogPrivacyParams pLogPrivacy);
+        List<modLogPrivacy> SelectLogPrivacy(modLogPrivacyParams pLogPrivacy);
+
+        modLogPrivacyID InsertLogPrivacy(modLogPrivacyParams pLogPrivacy);
 
         #endregion
 

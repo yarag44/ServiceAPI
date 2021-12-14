@@ -24,4 +24,12 @@ namespace goCCSI_API.Models
         public int idPersonnal { get; set; }
 
     }
+
+    public class modLogPrivacyID
+    {
+
+        public int idLogPrivacy { get; set; }
+
+    }
+
 }

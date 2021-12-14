@@ -1687,27 +1687,53 @@ namespace goCCSI_API.DL
         }
 
 
-
-
         #endregion
 
 
-        #region
 
-        public modLogPrivacy SelectInsert_LogPrivacy(modLogPrivacyParams pLogPrivacy)
+        #region LOG PRIVACY
+
+        public List<modLogPrivacy> SelectLogPrivacy(modLogPrivacyParams cLogPrivacy)
         {
-            modLogPrivacy cLog = new modLogPrivacy();
+
+            List<modLogPrivacy> lstLogPrivacy = new List<modLogPrivacy>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cLogPrivacy.Option),
+                new SqlParameter("@IDPERSONNAL", cLogPrivacy.idPersonnal)
+
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "per.SelectLogPrivacy", par).Tables[0];
+
+            lstLogPrivacy = bFunc.ConvertDataTable<modLogPrivacy>(dt);
+
+            return lstLogPrivacy;
+
+
+        }
+
+
+
+        public modLogPrivacyID InsertLogPrivacy(modLogPrivacyParams cLogPrivacy)
+        {
+
+            modLogPrivacyID cLog = new modLogPrivacyID();
             cLog.idLogPrivacy = 0;
 
             SqlParameter[] par = new SqlParameter[]
                       {
 
-                        new SqlParameter("@OPTION", pLogPrivacy.Option),
-                        new SqlParameter("@IDPERSONNAL", pLogPrivacy.idPersonnal)
+                        new SqlParameter("@OPTION", cLogPrivacy.Option),
+                        new SqlParameter("@IDPERSONNAL", cLogPrivacy.idPersonnal)
 
                       };
 
-            object idLogPrivacy = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.SelectInsert_LogPrivacy", par);
+            object idLogPrivacy = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "per.InsertLogPrivacy", par);
 
 
             if (idLogPrivacy == null)
@@ -1729,8 +1755,9 @@ namespace goCCSI_API.DL
 
         }
 
-
         #endregion
+
+
 
 
 

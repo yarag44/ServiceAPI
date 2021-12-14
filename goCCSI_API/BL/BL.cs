@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace goCCSI_API.BL
 {
-    public class BL: InterfacesGOCCSI
+    public class BL : InterfacesGOCCSI
     {
-        
+
         DL.DL dLayer;
 
         public BL()
@@ -186,7 +186,7 @@ namespace goCCSI_API.BL
         }
 
 
-    
+
 
         public List<modServicesPermissions> SelectServicesPermissions(modServicesPermissionParams cServ)
         {
@@ -241,7 +241,7 @@ namespace goCCSI_API.BL
             return dLayer.SelectPersonnalRoles(cPer);
         }
 
-        
+
         public List<modRoles> SelectRoles(modRolesParams pRoles)
         {
 
@@ -375,7 +375,7 @@ namespace goCCSI_API.BL
         public modLogAccessReturn Insert_LogAccess(modLogAccessParams pLogAccess)
         {
 
-            return dLayer.Insert_LogAccess(pLogAccess);    
+            return dLayer.Insert_LogAccess(pLogAccess);
 
         }
 
@@ -384,86 +384,84 @@ namespace goCCSI_API.BL
 
         #region LOG PRIVACY
 
-        public modLogPrivacy SelectInsert_LogPrivacy(modLogPrivacyParams pLogPrivacy)
+        public List<modLogPrivacy> SelectLogPrivacy(modLogPrivacyParams pLogPrivacy)
         {
-
-            return dLayer.SelectInsert_LogPrivacy(pLogPrivacy);
-
+            return dLayer.SelectLogPrivacy(pLogPrivacy);
         }
 
+        public modLogPrivacyID InsertLogPrivacy(modLogPrivacyParams pLogPrivacy)
+        {
 
+            return dLayer.InsertLogPrivacy(pLogPrivacy);
+
+        }
         #endregion
 
 
 
-
-    }
-
-
-
-    public class BLFunction
-    {
-
-        public List<T> ConvertDataTable<T>(DataTable dt)
+        public class BLFunction
         {
-            List<T> data = new List<T>();
-            foreach (DataRow row in dt.Rows)
-            {
-                T item = GetItem<T>(row);
-                data.Add(item);
-            }
-            return data;
-        }
 
-        public T GetItem<T>(DataRow dr)
-        {
-            Type temp = typeof(T);
-            T obj = Activator.CreateInstance<T>();
-
-            foreach (DataColumn column in dr.Table.Columns)
+            public List<T> ConvertDataTable<T>(DataTable dt)
             {
-                foreach (PropertyInfo pro in temp.GetProperties())
+                List<T> data = new List<T>();
+                foreach (DataRow row in dt.Rows)
                 {
-                    if (pro.Name.ToUpper() == column.ColumnName.ToUpper())
-                        pro.SetValue(obj, dr[column.ColumnName], null);
-                    else
-                        continue;
+                    T item = GetItem<T>(row);
+                    data.Add(item);
                 }
+                return data;
             }
-            return obj;
-        }
 
-
-        public void CopierProperty<TParent, TChild>(TParent parent, TChild child)
-        {
-            var parentProperties = parent.GetType().GetProperties();
-            var childProperties = child.GetType().GetProperties();
-
-            foreach (var parentProperty in parentProperties)
+            public T GetItem<T>(DataRow dr)
             {
-                foreach (var childProperty in childProperties)
+                Type temp = typeof(T);
+                T obj = Activator.CreateInstance<T>();
+
+                foreach (DataColumn column in dr.Table.Columns)
                 {
-                    if (parentProperty.Name == childProperty.Name && parentProperty.PropertyType == childProperty.PropertyType)
+                    foreach (PropertyInfo pro in temp.GetProperties())
                     {
-                        childProperty.SetValue(child, parentProperty.GetValue(parent));
-                        break;
+                        if (pro.Name.ToUpper() == column.ColumnName.ToUpper())
+                            pro.SetValue(obj, dr[column.ColumnName], null);
+                        else
+                            continue;
+                    }
+                }
+                return obj;
+            }
+
+
+            public void CopierProperty<TParent, TChild>(TParent parent, TChild child)
+            {
+                var parentProperties = parent.GetType().GetProperties();
+                var childProperties = child.GetType().GetProperties();
+
+                foreach (var parentProperty in parentProperties)
+                {
+                    foreach (var childProperty in childProperties)
+                    {
+                        if (parentProperty.Name == childProperty.Name && parentProperty.PropertyType == childProperty.PropertyType)
+                        {
+                            childProperty.SetValue(child, parentProperty.GetValue(parent));
+                            break;
+                        }
                     }
                 }
             }
+
         }
 
-    }
 
-
-    public static class Extension
-    {
-
-        public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder)
+        public static class Extension
         {
-            return builder.UseMiddleware<SwaggerBasicAuthMiddleware>();
+
+            public static IApplicationBuilder UseSwaggerAuthorized(this IApplicationBuilder builder)
+            {
+                return builder.UseMiddleware<SwaggerBasicAuthMiddleware>();
+            }
+
         }
-
     }
-
 
 }

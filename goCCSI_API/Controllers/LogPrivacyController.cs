@@ -30,8 +30,8 @@ namespace goCCSI_API.Controllers
 
 
         [HttpPost]
-        [Route("SelectInsert_LogPrivacy")]
-        public async Task<IActionResult> SelectInsert_LogPrivacy(modLogPrivacyParams pLogPrivacy)
+        [Route("SelectLogPrivacy")]
+        public async Task<IActionResult> SelectLogPrivacy(modLogPrivacyParams pLogPrivacy)
         {
 
             if (!ModelState.IsValid)
@@ -45,7 +45,33 @@ namespace goCCSI_API.Controllers
 
                 BL.BL bLayer = new BL.BL();
 
-                modLogPrivacy cLog = bLayer.SelectInsert_LogPrivacy(pLogPrivacy);
+                List<modLogPrivacy> lsLogPrivacy = bLayer.SelectLogPrivacy(pLogPrivacy);
+
+                return await Task.Run(() => Ok(lsLogPrivacy));
+
+            }
+
+
+        }
+
+
+        [HttpPost]
+        [Route("InsertLogPrivacy")]
+        public async Task<IActionResult> InsertLogPrivacy(modLogPrivacyParams pLogPrivacy)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest("Error 404");
+
+            }
+            else
+            {
+
+                BL.BL bLayer = new BL.BL();
+
+                modLogPrivacyID cLog = bLayer.InsertLogPrivacy(pLogPrivacy);
 
                 return await Task.Run(() => Ok(cLog));
 
