@@ -50,7 +50,8 @@ namespace goCCSI_API.Controllers
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = claims,
-                    Expires = DateTime.UtcNow.AddHours(24),
+                    //Expires = DateTime.UtcNow.AddHours(24),
+                    //Expires = DateTime.UtcNow.AddYears(100),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                 };
 
