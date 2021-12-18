@@ -397,7 +397,55 @@ namespace goCCSI_API.BL
         }
         #endregion
 
-    }
+
+
+        #region ALERTS
+
+        public List<modAlerts> Select_Alerts(modAlertsParams cAlertParams)
+        {
+
+            return dLayer.Select_Alerts(cAlertParams);
+        }
+
+        public bool RemoveAlertsRelations(modAlertsParams cAlertParams)
+        {
+
+            return dLayer.RemoveAlertsRelations(cAlertParams);
+
+        }
+
+        public bool AddAlertsRelations(modAlertsAddRelParams cAlertParams)
+        {
+
+            return dLayer.AddAlertsRelations(cAlertParams);
+
+        }
+
+
+        public modAlertsReturn InsertUpdateAlerts(modAlertsInsertUpdParams cAlertParams)
+        {
+
+            return dLayer.InsertUpdateAlerts(cAlertParams);
+
+        }
+
+        public List<modAlertsCatRel> SelectAlertsRelationsAllCatalogs(modAlertsCatRelParams cAlertParams)
+        {
+
+            return dLayer.SelectAlertsRelationsAllCatalogs(cAlertParams);
+
+        }
+
+
+            #endregion
+
+
+
+
+
+
+
+        }
 
     public class BLFunction
     {
