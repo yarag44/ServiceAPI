@@ -424,7 +424,7 @@ namespace goCCSI_API.DL
                       {
 
                         new SqlParameter("@idNews", pNews.idNews),
-
+                        new SqlParameter("@idPersonnal", pNews.idPersonnal),
 
                       };
 
@@ -1454,7 +1454,9 @@ namespace goCCSI_API.DL
             {
 
                 new SqlParameter("@idnews", cNew.idNews),
-                new SqlParameter("@pendingtopublish", cNew.isPendingPublish)
+                new SqlParameter("@pendingtopublish", cNew.isPendingPublish),
+                new SqlParameter("@idPersonnal", cNew.idPersonnal)
+
 
             };
 
@@ -1506,7 +1508,6 @@ namespace goCCSI_API.DL
             return cQty;
 
         }
-
 
         public modPersonnalPhotosResult Select_PhotosPersonnalByCriteria(modPersonnalPhotosParams cPer)
         {
@@ -1761,6 +1762,148 @@ namespace goCCSI_API.DL
         }
 
         #endregion
+
+
+
+
+        #region ALERTS
+
+        public List<modAlerts> Select_Alerts(modAlertsParams cAlertParams)
+        {
+
+            List<modAlerts> lstAlerts = new List<modAlerts>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cAlertParams.Option),
+                new SqlParameter("@IDALERT", cAlertParams.idAlert)
+
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "alr.Select_Alerts", par).Tables[0];
+
+            lstAlerts = bFunc.ConvertDataTable<modAlerts>(dt);
+
+            return lstAlerts;
+
+
+        }
+
+        public bool RemoveAlertsRelations(modAlertsParams cAlertParams)
+        {
+
+          
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cAlertParams.Option),
+                new SqlParameter("@IDALERT", cAlertParams.idAlert)
+
+            };
+
+            SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "alr.RemoveAlertsRelations", par);
+
+            return true;
+
+
+        }
+
+        public bool AddAlertsRelations(modAlertsAddRelParams cAlertParams)
+        {
+
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cAlertParams.Option),
+                new SqlParameter("@IDALERT", cAlertParams.idAlert),
+                new SqlParameter("@IDRELATION", cAlertParams.idRelation),
+
+            };
+
+            SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "alr.AddAlertsRelations", par);
+
+            return true;
+
+
+        }
+
+        public modAlertsReturn InsertUpdateAlerts(modAlertsInsertUpdParams cAlertParams)
+        {
+
+            modAlertsReturn cAlert = new modAlertsReturn();
+            cAlert.idAlert = 0;
+
+            SqlParameter[] par = new SqlParameter[]
+                      {
+
+                        new SqlParameter("@idAlert", cAlertParams.idAlert),
+                        new SqlParameter("@Title", cAlertParams.Title),
+                        new SqlParameter("@Subtitle", cAlertParams.SubTitle),
+                        new SqlParameter("@Description", cAlertParams.Description),
+                        new SqlParameter("@PinToTop", cAlertParams.PinToTop),
+
+                        new SqlParameter("@idViewAreas", cAlertParams.idViewAreas),
+                        new SqlParameter("@idViewPositions", cAlertParams.idViewPositions),
+
+
+                        new SqlParameter("@ExpirationDate", cAlertParams.ExpirationDate),
+                        new SqlParameter("@idPersonnalInsert", cAlertParams.idPersonnalInsert)
+                        
+                      };
+
+            object idAlert = SqlHelper.ExecuteScalar(ConnectionDWP, CommandType.StoredProcedure, "alr.InsertUpdateAlerts", par);
+
+
+            if (idAlert == null)
+            {
+                cAlert.idAlert = 0;
+
+            }
+            else
+            {
+                cAlert.idAlert = Convert.ToInt32(idAlert);
+
+
+            }
+
+
+
+            return cAlert;
+
+
+        }
+
+
+
+        public List<modAlertsCatRel> SelectAlertsRelationsAllCatalogs(modAlertsCatRelParams cAlertParams)
+        {
+
+            List<modAlertsCatRel> lstAlerts = new List<modAlertsCatRel>();
+            BLFunction bFunc = new BLFunction();
+
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+                new SqlParameter("@OPTION", cAlertParams.Option)
+               
+            };
+
+            DataTable dt = SqlHelper.ExecuteDataset(ConnectionDWP, CommandType.StoredProcedure, "alr.SelectAlertsRelationsAllCatalogs", par).Tables[0];
+
+            lstAlerts = bFunc.ConvertDataTable<modAlertsCatRel>(dt);
+
+            return lstAlerts;
+
+
+        }
+
+
+
+        #endregion
+
 
 
 

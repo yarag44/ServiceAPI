@@ -175,13 +175,32 @@ namespace goCCSI_API.Interfaces
         #endregion
 
 
-        #region
+        #region LOG PRIVACY
 
         List<modLogPrivacy> SelectLogPrivacy(modLogPrivacyParams pLogPrivacy);
 
         modLogPrivacyID InsertLogPrivacy(modLogPrivacyParams pLogPrivacy);
 
         #endregion
+
+
+        #region ALERTS
+
+        List<modAlerts> Select_Alerts(modAlertsParams cAlertParams);
+
+        bool RemoveAlertsRelations(modAlertsParams cAlertParams);
+
+        bool AddAlertsRelations(modAlertsAddRelParams cAlertParams);
+
+        modAlertsReturn InsertUpdateAlerts(modAlertsInsertUpdParams cAlertParams);
+
+        List<modAlertsCatRel> SelectAlertsRelationsAllCatalogs(modAlertsCatRelParams cAlertParams);
+
+        #endregion
+
+
+
+
 
 
     }

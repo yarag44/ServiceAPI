@@ -229,6 +229,10 @@ namespace goCCSI_API.Models
 
         public int idNews { get; set; }
 
+
+        public int idPersonnal { get; set; }
+
+
     }
 
 
@@ -342,6 +346,8 @@ namespace goCCSI_API.Models
 
         public bool isPendingPublish { get; set; }
 
+
+        public int idPersonnal { get; set; }
 
 
     }
