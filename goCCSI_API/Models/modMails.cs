@@ -58,7 +58,6 @@ namespace goCCSI_API.Models
 
         public bool Active { get; set; }
 
-
     }
 
     public class modMailsID
@@ -96,19 +95,11 @@ namespace goCCSI_API.Models
 
         public int idPersonnalSent { get; set; }
 
-        public string SenderName { get; set; }
-
-        public string SenderLastName { get; set; }
-
-        public string SenderMotherLastName { get; set; }
+        public string SenderCompleteName { get; set; }
 
         public int idPersonnalReceive { get; set; }
 
-        public string ReceiverName { get; set; }
-
-        public string ReceiverLastName { get; set; }
-
-        public string ReceiverMotherLastName { get; set; }
+        public string ReceiverCompleteName { get; set; }
 
         public int idAssignArea { get; set; }
 
@@ -124,7 +115,11 @@ namespace goCCSI_API.Models
 
         public int idUserInsert { get; set; }
 
+        public string UserInsertCompleteName { get; set; }
+
         public int idUserLastModify { get; set; }
+
+        public string UserLastModifyCompleteName { get; set; }
 
         public bool Active { get; set; }
 
