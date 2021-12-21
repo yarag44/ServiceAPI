@@ -25,6 +25,9 @@ namespace goCCSI_API.DL
             //PRODUCTION
             //ConnectionDWP = "Server=tcp:prod-goccsi-sql.database.windows.net,1433;Initial Catalog=Prod_GoCCSI_SQL;Persist Security Info=False;User ID=goCCSI2022;Password=goCCSI_prod2022#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout= 30;";
 
+            //Ahtziri
+            //DEVELOP
+            //ConnectionDWP = @"Server=CCSITIJ-ITDEV01,1433;Initial Catalog=Prod_GoCCSI_SQL;Persist Security Info=False;User ID=ahtziri.chandomi;Password=G3nerico01#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         }
 
         #region PERSONNAL
@@ -1559,6 +1562,8 @@ namespace goCCSI_API.DL
                         new SqlParameter("@BODY", pMail.Body),
                         new SqlParameter("@IDSTATUS", pMail.idStatus),
                         new SqlParameter("@ACTIVE", pMail.Active),
+                        new SqlParameter("@IDUSERINSERT", pMail.idUserInsert),
+                        new SqlParameter("@IDUSERLASTMODIFY", pMail.idUserLastModify),
 
                       };
 
