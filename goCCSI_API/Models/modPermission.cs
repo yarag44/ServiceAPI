@@ -118,7 +118,7 @@ namespace goCCSI_API.Models
         public string permissionType { get; set; }
 
 
-        public int MenuType { get; set; }
+        //public int MenuType { get; set; }
 
 
     }
